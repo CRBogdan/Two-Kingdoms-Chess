@@ -16,16 +16,22 @@ namespace Two_Kingdoms_Chess
     {
         Player.Player player;
 
-        public VsHuman(Player.Player player)
+        public VsHuman(Form1 form, Player.Player player)
         {
             this.player = player;
             this.player.gameChangeHandle += onGameChange;
             InitializeComponent();
+
+            pieces.Items.Clear();
+
+            foreach(var piece in player.pieces)
+            {
+                pieces.Items.Add($"{piece.piece.position.X} {piece.piece.position.Y}");
+            }
         }
 
         private void onGameChange(Move.Move move)
         {
-            label1.Text = move.getMoveColor();
         }
     }
 }

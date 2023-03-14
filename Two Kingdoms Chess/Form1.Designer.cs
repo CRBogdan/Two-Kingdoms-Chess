@@ -28,25 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            vsHuman = new Button();
+            mainMenu = new MainMenu(this);
             SuspendLayout();
             // 
-            // vsHuman
+            // mainMenu
             // 
-            vsHuman.Location = new Point(12, 12);
-            vsHuman.Name = "vsHuman";
-            vsHuman.Size = new Size(94, 29);
-            vsHuman.TabIndex = 0;
-            vsHuman.Text = "Vs Human";
-            vsHuman.UseVisualStyleBackColor = true;
-            vsHuman.Click += vsHuman_Click;
+            mainMenu.Anchor = AnchorStyles.None;
+            mainMenu.BackColor = Color.AliceBlue;
+            mainMenu.Location = new Point(0, 0);
+            mainMenu.Name = "mainMenu";
+            mainMenu.Size = new Size(820, 555);
+            mainMenu.TabIndex = 1;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(832, 567);
-            Controls.Add(vsHuman);
+            Controls.Add(mainMenu);
             Name = "Form1";
             Text = "Form1";
             ResumeLayout(false);
@@ -54,6 +53,6 @@
 
         #endregion
 
-        private Button vsHuman;
+        private MainMenu mainMenu;
     }
 }

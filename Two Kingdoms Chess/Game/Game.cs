@@ -4,12 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Two_Kingdoms_Chess.Move;
+using Two_Kingdoms_Chess.Piece;
 using Two_Kingdoms_Chess.Player;
 
 namespace Two_Kingdoms_Chess.Game
 {
     public class Game
     {
+        private Piece.ColoredPiece[][] gameTable;
+
         public Player.Player playerOne;
         public Player.Player playerTwo;
 
@@ -20,6 +23,9 @@ namespace Two_Kingdoms_Chess.Game
 
             playerOne.game = this;
             playerTwo.game = this;
+
+            addPiecesToTable(playerOne.pieces);
+            addPiecesToTable(playerTwo.pieces);
         }
 
         public void movePiece(Player.Player player, Move.Move move)
@@ -30,6 +36,14 @@ namespace Two_Kingdoms_Chess.Game
             }else
             {
                 playerOne.onPlayerMove(move);
+            }
+        }
+
+        private void addPiecesToTable(List<ColoredPiece> pieces)
+        {
+            foreach(ColoredPiece piece in pieces)
+            {
+                gameTable[piece.piece.position.X][piece.piece.position.Y] = piece;
             }
         }
     }                            
