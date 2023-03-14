@@ -15,7 +15,8 @@ namespace Two_Kingdoms_Chess.Player
 
         public override void onPlayerMove(Move.Move move)
         {
-            this.gameChangeHandle(move);
+            if(this.gameChangeHandle != null)
+                this.gameChangeHandle(move);
         }
     }
 }

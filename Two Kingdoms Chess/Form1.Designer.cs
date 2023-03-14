@@ -28,12 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            vsHuman = new Button();
+            SuspendLayout();
+            // 
+            // vsHuman
+            // 
+            vsHuman.Location = new Point(12, 12);
+            vsHuman.Name = "vsHuman";
+            vsHuman.Size = new Size(94, 29);
+            vsHuman.TabIndex = 0;
+            vsHuman.Text = "Vs Human";
+            vsHuman.UseVisualStyleBackColor = true;
+            vsHuman.Click += vsHuman_Click;
+            // 
+            // Form1
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(832, 567);
+            Controls.Add(vsHuman);
+            Name = "Form1";
+            Text = "Form1";
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private Button vsHuman;
     }
 }

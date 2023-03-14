@@ -17,6 +17,9 @@ namespace Two_Kingdoms_Chess.Game
         {
             this.playerOne = playerOne;
             this.playerTwo = playerTwo;
+
+            playerOne.game = this;
+            playerTwo.game = this;
         }
 
         public void movePiece(Player.Player player, Move.Move move)
