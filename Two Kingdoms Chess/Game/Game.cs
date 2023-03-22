@@ -43,7 +43,7 @@ namespace Two_Kingdoms_Chess.Game
         {
             foreach(ColoredPiece piece in pieces)
             {
-                gameTable[piece.piece.position.X][piece.piece.position.Y] = piece;
+                gameTable[piece.piece.position.x][piece.piece.position.y] = piece;
             }
         }
     }                            

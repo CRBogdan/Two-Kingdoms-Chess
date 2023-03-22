@@ -29,10 +29,11 @@ namespace Two_Kingdoms_Chess
             Player.Player humanOne = new Player.Human();
             Player.Player humanTwo= new Player.Human();
 
+            Game.Game game = new Game.Game(humanOne, humanTwo);
+
             humanOne.pieces.AddRange(whitePieceSetFactory.createWhiteSet());
             humanTwo.pieces.AddRange(blackPieceSetFactory.createBlackSet());
 
-            Game.Game game = new Game.Game(humanOne, humanTwo);
 
             parent.showVsHumanPanel(this, game);
         }

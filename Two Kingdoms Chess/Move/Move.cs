@@ -9,10 +9,14 @@ namespace Two_Kingdoms_Chess.Move
 {
     public abstract class Move
     {
-        public Piece.Piece ColoredPiece;
+        public Piece.Piece piece;
         public Position position;
         public string color;
 
-        public abstract string getMoveColor();
+        public Move(Piece.Piece piece, Position position)
+        {
+            this.piece = piece;
+            this.position = position;
+        }
     }
 }
