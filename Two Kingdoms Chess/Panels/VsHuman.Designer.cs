@@ -28,30 +28,61 @@
         /// </summary>
         private void InitializeComponent()
         {
-            pieces = new ListView();
+            dataGridView1 = new DataGridView();
+            Color = new DataGridViewTextBoxColumn();
+            x = new DataGridViewTextBoxColumn();
+            y = new DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
-            // pieces
+            // dataGridView1
             // 
-            pieces.Location = new Point(3, 3);
-            pieces.Name = "pieces";
-            pieces.Size = new Size(917, 182);
-            pieces.TabIndex = 0;
-            pieces.UseCompatibleStateImageBehavior = false;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Color, x, y });
+            dataGridView1.Dock = DockStyle.Fill;
+            dataGridView1.Location = new Point(0, 0);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.RowTemplate.Height = 29;
+            dataGridView1.Size = new Size(923, 592);
+            dataGridView1.TabIndex = 0;
+            // 
+            // Color
+            // 
+            Color.HeaderText = "Color";
+            Color.MinimumWidth = 6;
+            Color.Name = "Color";
+            // 
+            // x
+            // 
+            x.HeaderText = "x";
+            x.MinimumWidth = 6;
+            x.Name = "x";
+            // 
+            // y
+            // 
+            y.HeaderText = "y";
+            y.MinimumWidth = 6;
+            y.Name = "y";
             // 
             // VsHuman
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlDarkDark;
-            Controls.Add(pieces);
+            Controls.Add(dataGridView1);
             Name = "VsHuman";
             Size = new Size(923, 592);
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private ListView pieces;
+        private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn Color;
+        private DataGridViewTextBoxColumn x;
+        private DataGridViewTextBoxColumn y;
     }
 }

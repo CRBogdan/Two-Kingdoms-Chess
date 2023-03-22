@@ -11,8 +11,16 @@ namespace Two_Kingdoms_Chess.Piece
     {
         public Position position;
         public String pieceName;
+        public Piece(Position position, string pieceName)
+        {
+            this.position = position;
+            this.pieceName = pieceName;
+        }
 
-        public abstract List<Move.Move> getPossibleMoves();
-        public abstract void setPosition(Position position);
+        public abstract MoveTree getPossibleMoves();
+        public void setPosition(Position position)
+        {
+            this.position = position;
+        }
     }
 }

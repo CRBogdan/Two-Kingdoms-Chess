@@ -13,9 +13,11 @@ namespace Two_Kingdoms_Chess.Piece
 
         public List<WhitePiece> createWhiteSet() 
         {
-            
 
-            return new List<WhitePiece>(); 
+            return new List<WhitePiece>()
+            {
+                new WhitePiece(new King(new Position(10, 10)))
+            }; 
         }
     }
 }

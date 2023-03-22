@@ -11,5 +11,13 @@ namespace Two_Kingdoms_Chess.Piece
         public Piece piece;
 
         public abstract String getPieceColor();
+
+
+        public List<Move.Move> getMoves(ColoredPiece[][] table, MoveTree tree)
+        {
+            List<Move.Move> moves = new List<Move.Move>();
+
+            return moves;
+        }
     }
 }

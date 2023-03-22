@@ -22,11 +22,13 @@ namespace Two_Kingdoms_Chess
             this.player.gameChangeHandle += onGameChange;
             InitializeComponent();
 
-            pieces.Items.Clear();
+            dataGridView1.Rows.Clear();
 
-            foreach(var piece in player.pieces)
+            var moves = player.pieces[0].piece.getPossibleMoves().getMovesList();
+
+            foreach (var move in moves)
             {
-                pieces.Items.Add($"{piece.piece.position.X} {piece.piece.position.Y}");
+                dataGridView1.Rows.Add(move.color, move.position.x, move.position.y);
             }
         }
 
