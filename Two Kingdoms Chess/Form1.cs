@@ -1,5 +1,6 @@
 using Two_Kingdoms_Chess.Game;
 using Two_Kingdoms_Chess.Move;
+using Two_Kingdoms_Chess.Panels;
 using Two_Kingdoms_Chess.Player;
 
 namespace Two_Kingdoms_Chess
@@ -19,6 +20,18 @@ namespace Two_Kingdoms_Chess
             humanOne.Show();
             humanOne.Dock = DockStyle.Fill;
             this.Controls.Add(humanOne);
+        }
+
+        public void showBoardPanel(UserControl menu, Game.Game game) 
+        {
+            menu.Hide();
+
+            Board board = new Board();
+            board.Show();
+            board.Dock = DockStyle.Fill;
+            board.InitializeBoard();
+
+            this.Controls.Add(board);
         }
     }
 }
