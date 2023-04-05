@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             button1 = new Button();
+            boardButton = new Button();
             SuspendLayout();
             // 
             // button1
@@ -41,10 +42,21 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // boardButton
+            // 
+            boardButton.Location = new Point(103, 3);
+            boardButton.Name = "boardButton";
+            boardButton.Size = new Size(94, 29);
+            boardButton.TabIndex = 1;
+            boardButton.Text = "Board";
+            boardButton.UseVisualStyleBackColor = true;
+            boardButton.Click += boardButton_Click;
+            // 
             // MainMenu
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(boardButton);
             Controls.Add(button1);
             Name = "MainMenu";
             Size = new Size(903, 590);
@@ -54,5 +66,6 @@
         #endregion
 
         private Button button1;
+        private Button boardButton;
     }
 }
