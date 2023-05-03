@@ -13,6 +13,7 @@ namespace Two_Kingdoms_Chess
         public Soldier(Position position) : base(position, "soldier")
         {
         }
+
         public override List<Move> getPossibleMoves(ColoredPiece[,] table, String color)
         {
             List<Move> moves = new List<Move>();
