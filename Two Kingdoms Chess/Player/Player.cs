@@ -3,25 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Two_Kingdoms_Chess.Game;
-using Two_Kingdoms_Chess.Move;
-using Two_Kingdoms_Chess.Piece;
 
-namespace Two_Kingdoms_Chess.Player
+namespace Two_Kingdoms_Chess
 {
     public abstract class Player
     {
 
-        public Game.Game game;
+        public Game game;
         public List<ColoredPiece> pieces;
-        public delegate void GameChangeHandle(Move.Move move);
+        public delegate void GameChangeHandle(Move move);
         public GameChangeHandle gameChangeHandle;
         public Player()
         {
-            this.pieces = new List<Piece.ColoredPiece>();
+            this.pieces = new List<ColoredPiece>();
         }
 
-        public abstract void onPlayerMove(Move.Move move);
-        public abstract void movePiece(Move.Move move);
+        public abstract void onPlayerMove(Move move);
+        public abstract void movePiece(Move move);
     }
 }

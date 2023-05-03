@@ -1,6 +1,6 @@
 ﻿using System.Runtime.CompilerServices;
 
-namespace Two_Kingdoms_Chess.Panels
+namespace Two_Kingdoms_Chess
 {
     partial class Board
     {

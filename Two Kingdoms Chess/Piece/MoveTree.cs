@@ -4,22 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Two_Kingdoms_Chess.Piece
+namespace Two_Kingdoms_Chess
 {
     public class MoveTree
     {
         public List<MoveTree> moveTrees;
-        public List<Move.Move> moves;
+        public List<Move> moves;
 
-        public MoveTree(List<MoveTree> moveTrees, List<Move.Move> moves)
+        public MoveTree(List<MoveTree> moveTrees, List<Move> moves)
         {
             this.moveTrees = moveTrees;
             this.moves = moves;
         }
 
-        public List<Move.Move> getMovesList()
+        public List<Move> getMovesList()
         {
-            List<Move.Move> movesToReturn = new List<Move.Move>();
+            List<Move> movesToReturn = new List<Move>();
             if (moves != null)
                 movesToReturn.AddRange(moves);
 

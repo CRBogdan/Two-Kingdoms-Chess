@@ -5,7 +5,7 @@ using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Two_Kingdoms_Chess.Piece
+namespace Two_Kingdoms_Chess
 {
     public class WhitePieceSetFactory
     {

@@ -1,7 +1,4 @@
-using Two_Kingdoms_Chess.Game;
-using Two_Kingdoms_Chess.Move;
-using Two_Kingdoms_Chess.Panels;
-using Two_Kingdoms_Chess.Player;
+
 
 namespace Two_Kingdoms_Chess
 {
@@ -11,18 +8,18 @@ namespace Two_Kingdoms_Chess
         {
             InitializeComponent();
         }
-
-        public void showVsHumanPanel(UserControl menu, Game.Game game)
-        {
+        
+        public void showVsHumanPanel(UserControl menu, Game game)
+        {/*
             menu.Hide();
 
             VsHuman humanOne = new VsHuman(this, game.playerOne);
             humanOne.Show();
             humanOne.Dock = DockStyle.Fill;
-            this.Controls.Add(humanOne);
+            this.Controls.Add(humanOne);*/
         }
-
-        public void showBoardPanel(UserControl menu, Game.Game game) 
+        
+        public void showBoardPanel(UserControl menu, Game game) 
         {
             menu.Hide();
 

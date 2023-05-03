@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Two_Kingdoms_Chess.Piece
+namespace Two_Kingdoms_Chess
 {
     public class Position
     {

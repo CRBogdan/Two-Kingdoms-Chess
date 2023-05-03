@@ -4,18 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Two_Kingdoms_Chess.Piece
+namespace Two_Kingdoms_Chess
 {
     public abstract class ColoredPiece
     {
         public Piece piece;
+        //public string pieceName;
 
         public abstract String getPieceColor();
 
 
-        public List<Move.Move> getMoves(ColoredPiece[][] table, MoveTree tree)
+        public List<Move> getMoves(ColoredPiece[][] table, MoveTree tree)
         {
-            List<Move.Move> moves = new List<Move.Move>();
+            List<Move> moves = new List<Move>();
 
             return moves;
         }

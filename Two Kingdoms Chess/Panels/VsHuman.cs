@@ -7,16 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Two_Kingdoms_Chess.Move;
-using Two_Kingdoms_Chess.Player;
 
 namespace Two_Kingdoms_Chess
 {
     public partial class VsHuman : UserControl
     {
-        Player.Player player;
+        Player player;
 
-        public VsHuman(Form1 form, Player.Player player)
+        public VsHuman(Form1 form, Player player)
         {
             this.player = player;
             this.player.gameChangeHandle += onGameChange;
@@ -32,7 +30,7 @@ namespace Two_Kingdoms_Chess
             }
         }
 
-        private void onGameChange(Move.Move move)
+        private void onGameChange(Move move)
         {
         }
     }

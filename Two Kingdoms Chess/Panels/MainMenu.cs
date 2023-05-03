@@ -7,8 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Two_Kingdoms_Chess.Panels;
-using Two_Kingdoms_Chess.Piece;
 
 namespace Two_Kingdoms_Chess
 {
@@ -27,10 +25,10 @@ namespace Two_Kingdoms_Chess
             WhitePieceSetFactory whitePieceSetFactory = new WhitePieceSetFactory();
             BlackPieceSetFactory blackPieceSetFactory = new BlackPieceSetFactory();
 
-            Player.Player humanOne = new Player.Human();
-            Player.Player humanTwo = new Player.Human();
+            Player humanOne = new Human();
+            Player humanTwo = new Human();
 
-            Game.Game game = new Game.Game(humanOne, humanTwo);
+            Game game = new Game(humanOne, humanTwo);
 
             humanOne.pieces.AddRange(whitePieceSetFactory.createWhiteSet());
             humanTwo.pieces.AddRange(blackPieceSetFactory.createBlackSet());
@@ -41,10 +39,10 @@ namespace Two_Kingdoms_Chess
 
         private void boardButton_Click(object sender, EventArgs e)
         {
-            Player.Player humanOne = new Player.Human();
-            Player.Player humanTwo = new Player.Human();
+            Player humanOne = new Human();
+            Player humanTwo = new Human();
 
-            Game.Game game = new Game.Game(humanOne, humanTwo);
+            Game game = new Game(humanOne, humanTwo);
 
             parent.showBoardPanel(this, game);
         }
