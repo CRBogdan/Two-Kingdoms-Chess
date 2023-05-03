@@ -12,7 +12,6 @@ namespace Two_Kingdoms_Chess
 
         public abstract String getPieceColor();
 
-
         public List<Move> getMoves(ColoredPiece[,] table)
         {
             return piece.getPossibleMoves(table);

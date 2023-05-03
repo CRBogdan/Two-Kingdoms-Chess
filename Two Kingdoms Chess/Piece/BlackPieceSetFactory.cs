@@ -14,7 +14,7 @@ namespace Two_Kingdoms_Chess
         {
             return new List<BlackPiece>()
         {
-                new BlackPiece(new Soldier(new Position(8, 9)))
+                new BlackPiece(new Soldier(new Position(5, 7)))
         };
         }
     }

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             dataGridView1 = new DataGridView();
+            var sda = dataGridView1.TopLeftHeaderCell;
             Color = new DataGridViewTextBoxColumn();
             x = new DataGridViewTextBoxColumn();
             y = new DataGridViewTextBoxColumn();

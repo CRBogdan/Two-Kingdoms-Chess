@@ -18,6 +18,9 @@ namespace Two_Kingdoms_Chess
         {
             this.player = player;
             this.player.gameChangeHandle += onGameChange;
+
+            //var sd = dataGridView1
+
             InitializeComponent();
 
             dataGridView1.Rows.Clear();
