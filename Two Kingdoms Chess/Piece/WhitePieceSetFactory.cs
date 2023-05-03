@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
+using Two_Kingdoms_Chess.Piece.ConcretPiece;
 
 namespace Two_Kingdoms_Chess
 {
@@ -16,7 +17,7 @@ namespace Two_Kingdoms_Chess
 
             return new List<WhitePiece>()
             {
-                new WhitePiece(new King(new Position(10, 10)))
+                new WhitePiece(new King(new Position(9, 9))),
             }; 
         }
     }

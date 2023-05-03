@@ -8,7 +8,7 @@ namespace Two_Kingdoms_Chess
 {
     public class Game
     {
-        private ColoredPiece[][] gameTable;
+        public Piece.ColoredPiece[,] gameTable = new ColoredPiece[10,10];
 
         public Player playerOne;
         public Player playerTwo;
@@ -40,7 +40,7 @@ namespace Two_Kingdoms_Chess
         {
             foreach(ColoredPiece piece in pieces)
             {
-                gameTable[piece.piece.position.x][piece.piece.position.y] = piece;
+                gameTable[piece.piece.position.x,piece.piece.position.y] = piece;
             }
         }
     }                            

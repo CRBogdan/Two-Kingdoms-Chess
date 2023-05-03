@@ -22,7 +22,7 @@ namespace Two_Kingdoms_Chess
 
             dataGridView1.Rows.Clear();
 
-            var moves = player.pieces[0].piece.getPossibleMoves().getMovesList();
+            var moves = player.pieces[0].getMoves(player.game.gameTable);
 
             foreach (var move in moves)
             {
