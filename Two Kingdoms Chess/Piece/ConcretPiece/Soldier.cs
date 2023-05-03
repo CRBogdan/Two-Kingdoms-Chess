@@ -19,27 +19,57 @@ namespace Two_Kingdoms_Chess
 
             if (!wasMoved)
             {
-                for(int i = 0; i <= 3; i++) 
-                {
-                    moves.Add(getMove(table, new Position(position.x, position.y + i), color));
-                }
+                if (color == "white")
+                    for (int i = 1; i <= 3; i++)
+                    {
+                        var temp = getMove(table, new Position(position.x, position.y + i), color);
+                        if (temp != null)
+                            moves.Add(temp);
+                    }
+                else
+                    for (int i = -1; i >= -3; i--)
+                    {
+                        var temp = getMove(table, new Position(position.x, position.y + i), color);
+                        if (temp != null)
+                            moves.Add(temp);
+                    }
             }
             else
             {
-                moves.Add(getMove(table, new Position(position.x, position.y + 1), color));
+                if (color == "white")
+                    moves.Add(getMove(table, new Position(position.x, position.y + 1), color));
+                else
+                    moves.Add(getMove(table, new Position(position.x, position.y - 1), color));
             }
 
             Move tempMove;
 
-            tempMove = getMove(table, new Position(position.x + 1, position.y + 1), color);
-            if (tempMove.GetType() == typeof(OffensiveMove))
-                moves.Add(tempMove);
+            if (color == "white")
+            {
+                tempMove = getMove(table, new Position(position.x + 1, position.y + 1), color);
+                if (tempMove != null)
+                    if (tempMove.GetType() == typeof(OffensiveMove))
+                        moves.Add(tempMove);
 
-            tempMove = getMove(table, new Position(position.x - 1, position.y + 1), color);
-            if (tempMove.GetType() == typeof(OffensiveMove))
-                moves.Add(tempMove);
+                tempMove = getMove(table, new Position(position.x - 1, position.y + 1), color);
+                if (tempMove != null)
+                    if (tempMove.GetType() == typeof(OffensiveMove))
+                        moves.Add(tempMove);
+            }
+            else
+            {
+                tempMove = getMove(table, new Position(position.x - 1, position.y - 1), color);
+                if (tempMove != null)
+                    if (tempMove.GetType() == typeof(OffensiveMove))
+                        moves.Add(tempMove);
 
-            return null;
+                tempMove = getMove(table, new Position(position.x + 1, position.y - 1), color);
+                if (tempMove != null)
+                    if (tempMove.GetType() == typeof(OffensiveMove))
+                        moves.Add(tempMove);
+            }
+
+            return moves;
         }
     }
 }

@@ -6,7 +6,7 @@
         {
         }
 
-        public override List<Move> getPossibleMoves(ColoredPiece[,] table)
+        public override List<Move> getPossibleMoves(ColoredPiece[,] table, String color)
         {
             List<Move> moves = new List<Move>();
 
