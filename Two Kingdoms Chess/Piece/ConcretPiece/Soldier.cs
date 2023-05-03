@@ -13,16 +13,19 @@ namespace Two_Kingdoms_Chess
         public Soldier(Position position): base(position, "soldier") 
         {
         }
-        public override MoveTree getPossibleMoves()
+        public override MoveNode getPossibleMoves()
         {
-            MoveTree moves = new MoveTree(new List<MoveTree>(), null);
+            MoveNode movesTree = new MoveNode(new List<MoveNode>(), null);
 
-            if(position.y + 1 <= 9) 
+            if(position.y + 1 < 10) 
             {
-                //moves.moveTrees.Add(null, );
+                for(int i = position.y; i < 10; i++)
+                {
+
+                }
             }
 
-            return moves;
+            return movesTree;
         }
     }
 }
