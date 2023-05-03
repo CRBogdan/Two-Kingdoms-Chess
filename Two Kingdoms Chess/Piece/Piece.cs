@@ -16,7 +16,7 @@ namespace Two_Kingdoms_Chess
             this.pieceName = pieceName;
         }
 
-        public abstract MoveNode getPossibleMoves();
+        public abstract List<Move> getPossibleMoves(ColoredPiece[,] table);
         public void setPosition(Position position)
         {
             this.position = position;

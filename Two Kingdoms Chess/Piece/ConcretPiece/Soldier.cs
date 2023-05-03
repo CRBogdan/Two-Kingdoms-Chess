@@ -10,22 +10,33 @@ namespace Two_Kingdoms_Chess
     {
         private bool wasMoved = false;
 
-        public Soldier(Position position): base(position, "soldier") 
+        public Soldier(Position position) : base(position, "soldier")
         {
         }
-        public override MoveNode getPossibleMoves()
+        public override List<Move> getPossibleMoves(ColoredPiece[,] table)
         {
             MoveNode movesTree = new MoveNode(new List<MoveNode>(), null);
 
-            if(position.y + 1 < 10) 
+            if (position.y + 1 < 10)
             {
-                for(int i = position.y; i < 10; i++)
+                var tempMove = new MoveNode(null, new List<Move>
+                {
+                    new OffensiveMove(this, new Position(this.position.x, this.position.y + 1))
+                });
+
+                MoveNode currentNode = tempMove;
+
+                movesTree.moveNodes.Add(tempMove);
+
+                for (int i = 0; i < 3; i++)
                 {
 
                 }
             }
 
-            return movesTree;
+            return null;
         }
+
+        //private MoveNode nextMove()
     }
 }

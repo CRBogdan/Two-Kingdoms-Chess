@@ -11,66 +11,75 @@ namespace Two_Kingdoms_Chess
         public King(Position position) : base(position, "king")
         {
         }
-        public override MoveNode getPossibleMoves()
+        public override List<Move> getPossibleMoves(ColoredPiece[,] table)
         {
-            MoveNode movesTree = new MoveNode(new List<MoveNode>(), null);
+            List<Move> moves = new List<Move>();
 
             if (position.y + 1 < 10)
-                movesTree.moveNodes.Add(new MoveNode(null, new List<Move>()
+                if (table[position.x, position.y + 1] != null)
                 {
-                    new OffensiveMove(this, new Position(position.x, position.y + 1)),
-                    new NormalMove(this, new Position(position.x, position.y + 1)),
-                }));
+                    moves.Add(new OffensiveMove(this, new Position(position.x, position.y + 1)));
+                }
+                else
+                {
+                    moves.Add(new NormalMove(this, new Position(position.x, position.y + 1)));
+                }
 
             if (position.x + 1 < 10)
-                movesTree.moveNodes.Add(new MoveNode(null, new List<Move>()
+                if (table[position.x + 1, position.y] != null)
                 {
-                    new OffensiveMove(this, new Position(position.x+1, position.y)),
-                    new NormalMove(this, new Position(position.x+1, position.y)),
-                }));
+                    moves.Add(new OffensiveMove(this, new Position(position.x+1, position.y)));
+                }
+                else
+                {
+                    moves.Add(new NormalMove(this, new Position(position.x+1, position.y)));
+                }
 
             if (position.x - 1 >= 0)
-                movesTree.moveNodes.Add(new MoveNode(null, new List<Move>()
+                if (table[position.x - 1, position.y] != null)
                 {
-                    new OffensiveMove(this, new Position(position.x - 1, position.y)),
-                    new NormalMove(this, new Position(position.x - 1, position.y)),
-                }));
-
-            if (position.y - 1 >= 0)
-                movesTree.moveNodes.Add(new MoveNode(null, new List<Move>()
+                    moves.Add(new OffensiveMove(this, new Position(position.x - 1, position.y)));
+                }
+                else
                 {
-                    new OffensiveMove(this, new Position(position.x, position.y - 1)),
-                    new NormalMove(this, new Position(position.x, position.y - 1)),
-                }));
+                    moves.Add(new NormalMove(this, new Position(position.x - 1, position.y)));
+                }
 
-            if (position.x + 1 < 10 && position.y + 1 < 10)
-                movesTree.moveNodes.Add(new MoveNode(null, new List<Move>()
-                {
-                    new OffensiveMove(this, new Position(position.x + 1, position.y + 1)),
-                    new NormalMove(this, new Position(position.x + 1, position.y + 1)),
-                }));
+            //if (position.y - 1 >= 0)
+            //    moves.moveNodes.Add(new MoveNode(null, new List<Move>()
+            //    {
+            //        new OffensiveMove(this, new Position(position.x, position.y - 1)),
+            //        new NormalMove(this, new Position(position.x, position.y - 1)),
+            //    }));
 
-            if (position.x - 1 >= 0 && position.y - 1 >= 0)
-                movesTree.moveNodes.Add(new MoveNode(null, new List<Move>()
-                {
-                    new OffensiveMove(this, new Position(position.x - 1, position.y - 1))
-                }));
+            //if (position.x + 1 < 10 && position.y + 1 < 10)
+            //    moves.moveNodes.Add(new MoveNode(null, new List<Move>()
+            //    {
+            //        new OffensiveMove(this, new Position(position.x + 1, position.y + 1)),
+            //        new NormalMove(this, new Position(position.x + 1, position.y + 1)),
+            //    }));
 
-            if (position.x - 1 >= 0 && position.y + 1 < 10)
-                movesTree.moveNodes.Add(new MoveNode(null, new List<Move>()
-                {
-                    new OffensiveMove(this, new Position(position.x - 1, position.y + 1)),
-                    new NormalMove(this, new Position(position.x - 1, position.y + 1)),
-                }));
+            //if (position.x - 1 >= 0 && position.y - 1 >= 0)
+            //    moves.moveNodes.Add(new MoveNode(null, new List<Move>()
+            //    {
+            //        new OffensiveMove(this, new Position(position.x - 1, position.y - 1))
+            //    }));
 
-            if (position.x + 1 < 10 && position.y - 1 >= 0)
-                movesTree.moveNodes.Add(new MoveNode(null, new List<Move>()
-                {
-                    new OffensiveMove(this, new Position(position.x + 1, position.y - 1)),
-                    new NormalMove(this, new Position(position.x + 1, position.y - 1)),
-                }));
+            //if (position.x - 1 >= 0 && position.y + 1 < 10)
+            //    moves.moveNodes.Add(new MoveNode(null, new List<Move>()
+            //    {
+            //        new OffensiveMove(this, new Position(position.x - 1, position.y + 1)),
+            //        new NormalMove(this, new Position(position.x - 1, position.y + 1)),
+            //    }));
 
-            return movesTree;
+            //if (position.x + 1 < 10 && position.y - 1 >= 0)
+            //    moves.moveNodes.Add(new MoveNode(null, new List<Move>()
+            //    {
+            //        new OffensiveMove(this, new Position(position.x + 1, position.y - 1)),
+            //        new NormalMove(this, new Position(position.x + 1, position.y - 1)),
+            //    }));
+
+            return moves;
         }
     }
 }
