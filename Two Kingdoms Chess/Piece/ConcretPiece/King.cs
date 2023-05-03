@@ -11,89 +11,33 @@ namespace Two_Kingdoms_Chess
         public King(Position position) : base(position, "king")
         {
         }
-        public override List<Move> getPossibleMoves(ColoredPiece[,] table)
+        public override List<Move> getPossibleMoves(ColoredPiece[,] table, String color)
         {
             List<Move> moves = new List<Move>();
 
             if (position.y + 1 < 10)
-                if (table[position.x, position.y + 1] != null)
-                {
-                    moves.Add(new OffensiveMove(this, new Position(position.x, position.y + 1)));
-                }
-                else
-                {
-                    moves.Add(new NormalMove(this, new Position(position.x, position.y + 1)));
-                }
+                moves.Add(getMove(table, new Position(position.x, position.y+1), color));
 
             if (position.x + 1 < 10)
-                if (table[position.x + 1, position.y] != null)
-                {
-                    moves.Add(new OffensiveMove(this, new Position(position.x+1, position.y)));
-                }
-                else
-                {
-                    moves.Add(new NormalMove(this, new Position(position.x+1, position.y)));
-                }
+                moves.Add(getMove(table, new Position(position.x + 1, position.y), color));
 
             if (position.x - 1 >= 0)
-                if (table[position.x - 1, position.y] != null)
-                {
-                    moves.Add(new OffensiveMove(this, new Position(position.x - 1, position.y)));
-                }
-                else
-                {
-                    moves.Add(new NormalMove(this, new Position(position.x - 1, position.y)));
-                }
+                moves.Add(getMove(table, new Position(position.x - 1, position.y), color));
 
             if (position.y - 1 >= 0)
-                if (table[position.x, position.y - 1] != null)
-                {
-                    moves.Add(new OffensiveMove(this, new Position(position.x, position.y - 1)));
-                }
-                else
-                {
-                    moves.Add(new NormalMove(this, new Position(position.x, position.y - 1)));
-                }
+                moves.Add(getMove(table, new Position(position.x, position.y - 1), color));
 
             if (position.x + 1 < 10 && position.y + 1 < 10)
-                if (table[position.x + 1, position.y + 1] != null)
-                {
-                    moves.Add(new OffensiveMove(this, new Position(position.x + 1, position.y + 1)));
-                }
-                else
-                {
-                    moves.Add(new NormalMove(this, new Position(position.x + 1, position.y + 1)));
-                }
+                moves.Add(getMove(table, new Position(position.x + 1, position.y + 1), color));
 
             if (position.x - 1 >= 0 && position.y - 1 >= 0)
-                if (table[position.x - 1, position.y - 1] != null)
-                {
-                    moves.Add(new OffensiveMove(this, new Position(position.x - 1, position.y - 1)));
-                }
-                else
-                {
-                    moves.Add(new NormalMove(this, new Position(position.x - 1, position.y - 1)));
-                }
+                moves.Add(getMove(table, new Position(position.x - 1, position.y - 1), color));
 
             if (position.x - 1 >= 0 && position.y + 1 < 10)
-                if (table[position.x - 1, position.y + 1] != null)
-                {
-                    moves.Add(new OffensiveMove(this, new Position(position.x - 1, position.y + 1)));
-                }
-                else
-                {
-                    moves.Add(new NormalMove(this, new Position(position.x - 1, position.y + 1)));
-                }
+                moves.Add(getMove(table, new Position(position.x - 1, position.y + 1), color));
 
             if (position.x + 1 < 10 && position.y - 1 >= 0)
-                if (table[position.x + 1, position.y - 1] != null)
-                {
-                    moves.Add(new OffensiveMove(this, new Position(position.x + 1, position.y - 1)));
-                }
-                else
-                {
-                    moves.Add(new NormalMove(this, new Position(position.x + 1, position.y - 1)));
-                }
+                moves.Add(getMove(table, new Position(position.x + 1, position.y - 1), color));
 
             return moves;
         }

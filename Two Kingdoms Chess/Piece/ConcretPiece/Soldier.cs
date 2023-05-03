@@ -13,30 +13,33 @@ namespace Two_Kingdoms_Chess
         public Soldier(Position position) : base(position, "soldier")
         {
         }
-        public override List<Move> getPossibleMoves(ColoredPiece[,] table)
+        public override List<Move> getPossibleMoves(ColoredPiece[,] table, String color)
         {
-            MoveNode movesTree = new MoveNode(new List<MoveNode>(), null);
+            List<Move> moves = new List<Move>();
 
-            if (position.y + 1 < 10)
+            if (!wasMoved)
             {
-                var tempMove = new MoveNode(null, new List<Move>
+                for(int i = 0; i <= 3; i++) 
                 {
-                    new OffensiveMove(this, new Position(this.position.x, this.position.y + 1))
-                });
-
-                MoveNode currentNode = tempMove;
-
-                movesTree.moveNodes.Add(tempMove);
-
-                for (int i = 0; i < 3; i++)
-                {
-
+                    moves.Add(getMove(table, new Position(position.x, position.y + i), color));
                 }
             }
+            else
+            {
+                moves.Add(getMove(table, new Position(position.x, position.y + 1), color));
+            }
+
+            Move tempMove;
+
+            tempMove = getMove(table, new Position(position.x + 1, position.y + 1), color);
+            if (tempMove.GetType() == typeof(OffensiveMove))
+                moves.Add(tempMove);
+
+            tempMove = getMove(table, new Position(position.x - 1, position.y + 1), color);
+            if (tempMove.GetType() == typeof(OffensiveMove))
+                moves.Add(tempMove);
 
             return null;
         }
-
-        //private MoveNode nextMove()
     }
 }

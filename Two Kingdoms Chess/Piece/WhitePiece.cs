@@ -11,6 +11,7 @@ namespace Two_Kingdoms_Chess
         public WhitePiece(Piece piece)
         {
             this.piece = piece;
+            this.color = "white";
         }
         public override string getPieceColor()
         {
