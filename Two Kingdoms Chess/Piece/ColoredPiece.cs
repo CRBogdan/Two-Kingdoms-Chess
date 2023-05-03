@@ -13,9 +13,9 @@ namespace Two_Kingdoms_Chess
         public abstract String getPieceColor();
 
 
-        public List<Move> getMoves(ColoredPiece[][] table, MoveTree tree)
+        public List<Move> getMoves(ColoredPiece[,] table)
         {
-            List<Move> moves = new List<Move>();
+            var moveTree = piece.getPossibleMoves();
 
             return validateMove(table, moveTree).getMovesList();
         }

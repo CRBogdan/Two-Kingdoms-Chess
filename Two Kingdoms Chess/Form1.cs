@@ -10,13 +10,13 @@ namespace Two_Kingdoms_Chess
         }
         
         public void showVsHumanPanel(UserControl menu, Game game)
-        {/*
+        {
             menu.Hide();
 
             VsHuman humanOne = new VsHuman(this, game.playerOne);
             humanOne.Show();
             humanOne.Dock = DockStyle.Fill;
-            this.Controls.Add(humanOne);*/
+            this.Controls.Add(humanOne);
         }
         
         public void showBoardPanel(UserControl menu, Game game) 

@@ -31,7 +31,7 @@ namespace Two_Kingdoms_Chess
             humanOne.pieces.AddRange(whitePieceSetFactory.createWhiteSet());
             humanTwo.pieces.AddRange(blackPieceSetFactory.createBlackSet());
 
-            Game.Game game = new Game.Game(humanOne, humanTwo);
+            Game game = new Game(humanOne, humanTwo);
 
             parent.showVsHumanPanel(this, game);
         }
