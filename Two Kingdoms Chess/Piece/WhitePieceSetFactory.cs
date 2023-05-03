@@ -16,7 +16,8 @@ namespace Two_Kingdoms_Chess
 
             return new List<WhitePiece>()
             {
-                new WhitePiece(new General(new Position(5, 5))),
+                new WhitePiece(new Knight(new Position(5, 5))),
+                //new WhitePiece(new Soldier(new Position(5, 4))),
             }; 
         }
     }
