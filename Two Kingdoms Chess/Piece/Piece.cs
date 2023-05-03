@@ -11,6 +11,7 @@ namespace Two_Kingdoms_Chess
     {
         public Position position;
         public String pieceName;
+
         public Piece(Position position, string pieceName)
         {
             this.position = position;
