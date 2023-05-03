@@ -1,4 +1,6 @@
-﻿namespace Two_Kingdoms_Chess
+﻿using System.Drawing;
+
+namespace Two_Kingdoms_Chess
 {
     internal class General : Piece
     {
@@ -6,7 +8,7 @@
         {
         }
 
-        public override List<Move> getPossibleMoves(ColoredPiece[,] table)
+        public override List<Move> getPossibleMoves(ColoredPiece[,] table, String color)
         {
             List<Move> moves = new List<Move>();
 
@@ -15,7 +17,10 @@
             {
                 if (table[i, position.y] != null)
                 {
-                    moves.Add(new OffensiveMove(this, new Position(i, position.y)));
+                    if (table[i, position.y].color != color)
+                    {
+                        moves.Add(new OffensiveMove(this, new Position(i, position.y)));
+                    }
                     break;
                 }
                 
@@ -27,9 +32,13 @@
             {
                 if (table[i, position.y] != null)
                 {
-                    moves.Add(new OffensiveMove(this, new Position(i, position.y)));
+                    if(table[i, position.y].color != color)
+                    {
+                        moves.Add(new OffensiveMove(this, new Position(i, position.y)));
+                    }
                     break;
                 }
+
                 moves.Add(new NormalMove(this, new Position(i, position.y)));
             }
 
@@ -38,9 +47,13 @@
             {
                 if (table[position.x, i] != null)
                 {
-                    moves.Add(new OffensiveMove(this, new Position(position.x, i)));
+                    if(table[i, position.y].color != color)
+                    {
+                        moves.Add(new OffensiveMove(this, new Position(position.x, i)));
+                    }
                     break;
                 }
+
                 moves.Add(new NormalMove(this, new Position(position.x, i)));
             }
 
@@ -49,9 +62,13 @@
             {
                 if (table[position.x, i] != null)
                 {
-                    moves.Add(new OffensiveMove(this, new Position(position.x, i)));
+                    if(table[i, position.y].color != color)
+                    {
+                        moves.Add(new OffensiveMove(this, new Position(position.x, i)));
+                    }
                     break;
                 }
+
                 moves.Add(new NormalMove(this, new Position(position.x, i)));
             }
 
@@ -60,9 +77,13 @@
             {
                 if (table[i, j] != null)
                 {
-                    moves.Add(new OffensiveMove(this, new Position(i, j)));
+                    if(table[i, position.y].color != color)
+                    {
+                        moves.Add(new OffensiveMove(this, new Position(i, j)));
+                    }
                     break;
                 }
+
                 moves.Add(new NormalMove(this, new Position(i, j)));
             }
 
@@ -71,9 +92,14 @@
             {
                 if (table[i, j] != null)
                 {
-                    moves.Add(new OffensiveMove(this, new Position(i, j)));
+                    if(table[i, position.y].color != color)
+                    {
+                        moves.Add(new OffensiveMove(this, new Position(i, j)));
+
+                    }
                     break;
                 }
+
                 moves.Add(new NormalMove(this, new Position(i, j)));
             }
 
@@ -82,9 +108,13 @@
             {
                 if (table[i, j] != null)
                 {
-                    moves.Add(new OffensiveMove(this, new Position(i, j)));
+                    if(table[i, position.y].color != color)
+                    {
+                        moves.Add(new OffensiveMove(this, new Position(i, j)));
+                    }
                     break;
                 }
+
                 moves.Add(new NormalMove(this, new Position(i, j)));
             }
 
@@ -93,9 +123,13 @@
             {
                 if (table[i, j] != null)
                 {
-                    moves.Add(new OffensiveMove(this, new Position(i, j)));
+                    if(table[i, position.y].color != color)
+                    {
+                        moves.Add(new OffensiveMove(this, new Position(i, j)));
+                    }
                     break;
                 }
+
                 moves.Add(new NormalMove(this, new Position(i, j)));
             }
 
