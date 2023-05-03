@@ -8,7 +8,7 @@ namespace Two_Kingdoms_Chess
 {
     public class Game
     {
-        public Piece.ColoredPiece[,] gameTable = new ColoredPiece[10,10];
+        public ColoredPiece[,] gameTable = new ColoredPiece[10,10];
 
         public Player playerOne;
         public Player playerTwo;

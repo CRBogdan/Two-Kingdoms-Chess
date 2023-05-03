@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Two_Kingdoms_Chess.Piece.ConcretPiece
+namespace Two_Kingdoms_Chess
 {
     internal class Soldier : Piece
     {
