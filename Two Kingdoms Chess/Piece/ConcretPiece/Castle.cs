@@ -45,7 +45,7 @@
             {
                 if (table[position.x, i] != null)
                 {
-                    if (table[i, position.y].color != color)
+                    if (table[position.x, i].color != color)
                     {
                         moves.Add(new OffensiveMove(this, new Position(position.x, i)));
                     }
@@ -60,7 +60,7 @@
             {
                 if (table[position.x, i] != null)
                 {
-                    if (table[i, position.y].color != color)
+                    if (table[position.x, i].color != color)
                     {
                         moves.Add(new OffensiveMove(this, new Position(position.x, i)));
                     }

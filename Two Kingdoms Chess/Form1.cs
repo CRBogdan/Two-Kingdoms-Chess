@@ -23,7 +23,7 @@ namespace Two_Kingdoms_Chess
         {
             menu.Hide();
 
-            Board board = new Board();
+            Board board = new Board(game);
             board.Show();
             board.Dock = DockStyle.Fill;
             board.InitializeBoard();

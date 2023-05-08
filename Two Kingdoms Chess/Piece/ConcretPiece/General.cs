@@ -95,7 +95,6 @@ namespace Two_Kingdoms_Chess
                     if(table[i, j].color != color)
                     {
                         moves.Add(new OffensiveMove(this, new Position(i, j)));
-
                     }
                     break;
                 }

@@ -44,32 +44,6 @@ namespace Two_Kingdoms_Chess
 
         #endregion
 
-        public void InitializeBoard()
-        {
-            int buttonSize = 70;
-            Button[,] board = new Button[10, 10];
-
-            for (int i = 0; i < 10; i++)
-            {
-                for (int j = 0; j < 10; j++)
-                {
-                    board[i, j] = new Button()
-                    {
-                        Parent = this,
-                        Padding = new Padding(0,0,0,0),
-                        Size = new Size(buttonSize, buttonSize),
-                        Location = new Point(i * buttonSize, j * buttonSize),
-                        BackColor = Color.Black,
-                    };
-
-                    if ((i + j) % 2 == 0)
-                    {
-                        board[i, j].BackColor = Color.White;
-                    }
-
-                    this.Controls.Add(board[i, j]);
-                }
-            }
-        }
+        
     }
 }

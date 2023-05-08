@@ -38,8 +38,14 @@ namespace Two_Kingdoms_Chess
 
         private void boardButton_Click(object sender, EventArgs e)
         {
+            WhitePieceSetFactory whitePieceSetFactory = new WhitePieceSetFactory();
+            BlackPieceSetFactory blackPieceSetFactory = new BlackPieceSetFactory();
+
             Player humanOne = new Human();
             Player humanTwo = new Human();
+
+            humanOne.pieces.AddRange(whitePieceSetFactory.createWhiteSet());
+            humanTwo.pieces.AddRange(blackPieceSetFactory.createBlackSet());
 
             Game game = new Game(humanOne, humanTwo);
 
