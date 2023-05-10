@@ -30,7 +30,7 @@
                     };
 
                     board[i, j].Click += showMoves;
-                        
+
                     if ((i + j) % 2 == 0)
                     {
                         board[i, j].BackColor = Color.NavajoWhite;
@@ -45,9 +45,9 @@
 
         public void addPiecesToTable()
         {
-            foreach(var piece in game.gameTable)
+            foreach (var piece in game.gameTable)
             {
-                if(piece != null)
+                if (piece != null)
                 {
                     try
                     {
@@ -67,32 +67,48 @@
             Button piece;
             List<Move> moves = new List<Move>();
 
-            for(int i = 0; i < 10; i++)
+            for (int i = 0; i < 10; i++)
             {
-                for(int j = 0; j < 10; j++)
+                for (int j = 0; j < 10; j++)
                 {
-                    if (board[i,j] == sender)
+                    if (board[i, j] == sender)
                     {
-                        if (game.gameTable[i,j] == null)
+                        if (game.gameTable[i, j] == null)
                         {
                             return;
                         }
 
-                        moves = game.gameTable[i, j].piece.getPossibleMoves(game.gameTable, game.gameTable[i,j].color);
+                        moves = game.gameTable[i, j].piece.getPossibleMoves(game.gameTable, game.gameTable[i, j].color);
                         break;
                     }
                 }
             }
 
-            foreach(var move in moves)
+            refreshTable();
+
+            foreach (var move in moves)
             {
-                if(move.color == "green")
+                if (move.color == "green")
                 {
                     board[move.position.x, move.position.y].BackColor = Color.Green;
                 }
-                else if(move.color == "red")
+                else if (move.color == "red")
                 {
                     board[move.position.x, move.position.y].BackColor = Color.Red;
+                }
+            }
+        }
+
+        private void refreshTable()
+        {
+            for (int i = 0; i <= 9; i++)
+            {
+                for (int j = 0; j <= 9; j++)
+                {
+                    if ((i + j) % 2 == 0)
+                        board[i, j].BackColor = Color.NavajoWhite;
+                    else
+                        board[i,j].BackColor = Color.SaddleBrown;
                 }
             }
         }
