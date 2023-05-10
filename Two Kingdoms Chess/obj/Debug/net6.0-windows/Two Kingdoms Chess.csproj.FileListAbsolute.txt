@@ -1,0 +1,20 @@
+D:\Two-Kingdoms-Chess\Two Kingdoms Chess\bin\Debug\net6.0-windows\Two Kingdoms Chess.exe
+D:\Two-Kingdoms-Chess\Two Kingdoms Chess\bin\Debug\net6.0-windows\Two Kingdoms Chess.deps.json
+D:\Two-Kingdoms-Chess\Two Kingdoms Chess\bin\Debug\net6.0-windows\Two Kingdoms Chess.runtimeconfig.json
+D:\Two-Kingdoms-Chess\Two Kingdoms Chess\bin\Debug\net6.0-windows\Two Kingdoms Chess.dll
+D:\Two-Kingdoms-Chess\Two Kingdoms Chess\bin\Debug\net6.0-windows\Two Kingdoms Chess.pdb
+D:\Two-Kingdoms-Chess\Two Kingdoms Chess\obj\Debug\net6.0-windows\Two Kingdoms Chess.csproj.AssemblyReference.cache
+D:\Two-Kingdoms-Chess\Two Kingdoms Chess\obj\Debug\net6.0-windows\Two_Kingdoms_Chess.Form1.resources
+D:\Two-Kingdoms-Chess\Two Kingdoms Chess\obj\Debug\net6.0-windows\Two_Kingdoms_Chess.Board.resources
+D:\Two-Kingdoms-Chess\Two Kingdoms Chess\obj\Debug\net6.0-windows\Two_Kingdoms_Chess.MainMenu.resources
+D:\Two-Kingdoms-Chess\Two Kingdoms Chess\obj\Debug\net6.0-windows\Two_Kingdoms_Chess.VsHuman.resources
+D:\Two-Kingdoms-Chess\Two Kingdoms Chess\obj\Debug\net6.0-windows\Two Kingdoms Chess.csproj.GenerateResource.cache
+D:\Two-Kingdoms-Chess\Two Kingdoms Chess\obj\Debug\net6.0-windows\Two Kingdoms Chess.GeneratedMSBuildEditorConfig.editorconfig
+D:\Two-Kingdoms-Chess\Two Kingdoms Chess\obj\Debug\net6.0-windows\Two Kingdoms Chess.AssemblyInfoInputs.cache
+D:\Two-Kingdoms-Chess\Two Kingdoms Chess\obj\Debug\net6.0-windows\Two Kingdoms Chess.AssemblyInfo.cs
+D:\Two-Kingdoms-Chess\Two Kingdoms Chess\obj\Debug\net6.0-windows\Two Kingdoms Chess.csproj.CoreCompileInputs.cache
+D:\Two-Kingdoms-Chess\Two Kingdoms Chess\obj\Debug\net6.0-windows\Two Kingdoms Chess.dll
+D:\Two-Kingdoms-Chess\Two Kingdoms Chess\obj\Debug\net6.0-windows\refint\Two Kingdoms Chess.dll
+D:\Two-Kingdoms-Chess\Two Kingdoms Chess\obj\Debug\net6.0-windows\Two Kingdoms Chess.pdb
+D:\Two-Kingdoms-Chess\Two Kingdoms Chess\obj\Debug\net6.0-windows\Two Kingdoms Chess.genruntimeconfig.cache
+D:\Two-Kingdoms-Chess\Two Kingdoms Chess\obj\Debug\net6.0-windows\ref\Two Kingdoms Chess.dll
