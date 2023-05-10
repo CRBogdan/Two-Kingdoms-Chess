@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Two_Kingdoms_Chess
+﻿namespace Two_Kingdoms_Chess
 {
     internal class Archer : Piece
     {
@@ -38,6 +32,7 @@ namespace Two_Kingdoms_Chess
             if (position.x + 2 < 10 && position.y - 2 >= 0)
                 moves.Add(getMove(table, new Position(position.x + 2, position.y - 2), color));
 
+            moves.RemoveAll(x => x == null);
 
             return moves;
         }

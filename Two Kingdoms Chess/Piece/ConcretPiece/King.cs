@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Two_Kingdoms_Chess
+﻿namespace Two_Kingdoms_Chess
 {
     internal class King : Piece
     {
@@ -16,7 +10,8 @@ namespace Two_Kingdoms_Chess
             List<Move> moves = new List<Move>();
 
             if (position.y + 1 < 10)
-                moves.Add(getMove(table, new Position(position.x, position.y+1), color));
+                moves.Add(getMove(table, new Position(position.x, position.y + 1), color));
+                
 
             if (position.x + 1 < 10)
                 moves.Add(getMove(table, new Position(position.x + 1, position.y), color));
@@ -38,6 +33,8 @@ namespace Two_Kingdoms_Chess
 
             if (position.x + 1 < 10 && position.y - 1 >= 0)
                 moves.Add(getMove(table, new Position(position.x + 1, position.y - 1), color));
+
+            moves.RemoveAll(x => x == null);
 
             return moves;
         }

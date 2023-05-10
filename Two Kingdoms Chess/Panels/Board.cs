@@ -33,7 +33,7 @@
                         
                     if ((i + j) % 2 == 0)
                     {
-                        board[i, j].BackColor = Color.White;
+                        board[i, j].BackColor = Color.NavajoWhite;
                     }
 
                     this.Controls.Add(board[i, j]);
@@ -73,8 +73,13 @@
                 {
                     if (board[i,j] == sender)
                     {
-                       moves = game.gameTable[i, j].piece.getPossibleMoves(game.gameTable, game.gameTable[i,j].color);
-                       break;
+                        if (game.gameTable[i,j] == null)
+                        {
+                            return;
+                        }
+
+                        moves = game.gameTable[i, j].piece.getPossibleMoves(game.gameTable, game.gameTable[i,j].color);
+                        break;
                     }
                 }
             }
