@@ -59,7 +59,7 @@
             Controls.Add(boardButton);
             Controls.Add(button1);
             Name = "MainMenu";
-            Size = new Size(903, 590);
+            Size = new Size(700, 700);
             ResumeLayout(false);
         }
 

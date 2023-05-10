@@ -37,14 +37,15 @@
             mainMenu.BackColor = Color.AliceBlue;
             mainMenu.Location = new Point(0, 0);
             mainMenu.Name = "mainMenu";
-            mainMenu.Size = new Size(820, 555);
+            mainMenu.Dock = DockStyle.Fill;
             mainMenu.TabIndex = 1;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(832, 567);
+            ClientSize = new Size(700, 700);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Controls.Add(mainMenu);
             Name = "Form1";
             Text = "Form1";

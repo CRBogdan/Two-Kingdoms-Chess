@@ -8,7 +8,7 @@ namespace Two_Kingdoms_Chess
         {
             InitializeComponent();
         }
-        
+
         public void showVsHumanPanel(UserControl menu, Game game)
         {
             menu.Hide();
@@ -18,8 +18,8 @@ namespace Two_Kingdoms_Chess
             humanOne.Dock = DockStyle.Fill;
             this.Controls.Add(humanOne);
         }
-        
-        public void showBoardPanel(UserControl menu, Game game) 
+
+        public void showBoardPanel(UserControl menu, Game game)
         {
             menu.Hide();
 
