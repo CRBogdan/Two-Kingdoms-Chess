@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Two_Kingdoms_Chess
+﻿namespace Two_Kingdoms_Chess
 {
     public class Game
     {
@@ -30,7 +24,8 @@ namespace Two_Kingdoms_Chess
             if(player == playerOne)
             {
                 playerTwo.onPlayerMove(move);
-            }else
+            }
+            else
             {
                 playerOne.onPlayerMove(move);
             }

@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-
-namespace Two_Kingdoms_Chess
+﻿namespace Two_Kingdoms_Chess
 {
     internal class General : Piece
     {

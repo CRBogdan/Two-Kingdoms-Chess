@@ -1,11 +1,4 @@
-﻿using Microsoft.VisualBasic.Devices;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Two_Kingdoms_Chess
+﻿namespace Two_Kingdoms_Chess
 {
     public abstract class Piece
     {
@@ -19,6 +12,7 @@ namespace Two_Kingdoms_Chess
         }
 
         public abstract List<Move> getPossibleMoves(ColoredPiece[,] table, String color);
+
         public void setPosition(Position position)
         {
             this.position = position;
