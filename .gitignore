@@ -1,3 +1,4 @@
-Two Kingdoms Chess/bin/
-Two Kingdoms Chess/obj/
+Two Kingdoms Chess/bin/*
+Two Kingdoms Chess/obj/*
+
 .vs/
