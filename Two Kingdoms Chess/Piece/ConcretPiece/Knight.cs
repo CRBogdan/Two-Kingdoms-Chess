@@ -80,7 +80,7 @@
             {
                 if (table[position.x - 1, position.y - 2] == null)
                 {
-                    moves.Add(new NormalMove(this, new Position(position.x - 2, position.y - 2)));
+                    moves.Add(new NormalMove(this, new Position(position.x - 1, position.y - 2)));
                 }
                 else if (table[position.x - 1, position.y - 2].color != color)
                 {
