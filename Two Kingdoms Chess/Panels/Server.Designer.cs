@@ -1,6 +1,6 @@
-﻿namespace Two_Kingdoms_Chess
+﻿namespace Two_Kingdoms_Chess.Panels
 {
-    partial class VsHuman
+    partial class Server
     {
         /// <summary> 
         /// Required designer variable.
@@ -30,13 +30,12 @@
         {
             SuspendLayout();
             // 
-            // VsHuman
+            // Server
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ControlDarkDark;
-            Name = "VsHuman";
-            Size = new Size(923, 592);
+            Name = "Server";
+            Size = new Size(700, 700);
             ResumeLayout(false);
         }
 

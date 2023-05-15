@@ -2,16 +2,23 @@
 {
     public partial class Board : UserControl
     {
+        private Player player;
         private static readonly string path = Directory.GetCurrentDirectory();
         private Button[,] board = new Button[10, 10];
         private static readonly int buttonSize = 70;
-        private readonly Game game;
-        private ColoredPiece selectedPiece;
 
-        public Board(Game game)
+        public delegate void OnPieceSelect(ColoredPiece coloredPiece);
+        public event OnPieceSelect onPieceSelect;
+
+        public delegate void OnMovePiece(Position position);
+        public event OnMovePiece onMovePiece;
+
+        private ColoredPiece[,] gameTable;
+
+        public Board(ColoredPiece[,] gameTable)
         {
+            this.gameTable = gameTable;
             InitializeComponent();
-            this.game = game ?? throw new ArgumentNullException(nameof(game));
         }
 
         public void InitializeBoard()
@@ -30,7 +37,7 @@
                         BackgroundImageLayout = ImageLayout.Stretch,
                     };
 
-                    board[i, j].Click += showMoves;
+                    board[i, j].Click += onPieceClick;
 
                     if ((i + j) % 2 == 0)
                     {
@@ -46,7 +53,7 @@
 
         public void addPiecesToTable()
         {
-            foreach (var piece in game.gameTable)
+            foreach (var piece in gameTable)
             {
                 if (piece != null)
                 {
@@ -63,22 +70,20 @@
             }
         }
 
-        public void showMoves(object sender, EventArgs eventArgs)
+        private void onPieceClick(object sender, EventArgs eventArgs)
         {
             List<Move> moves = new List<Move>();
             Position buttonPosition = getButtonPosition(sender);
 
-            refreshTable();
-
-            if (game.gameTable[buttonPosition.x, buttonPosition.y] == null)
+            if (buttonPosition != null)
             {
-                return;
+                onPieceSelect(gameTable[buttonPosition.x, buttonPosition.y]);
             }
+        }
 
-            selectedPiece = game.gameTable[buttonPosition.x, buttonPosition.y];
-
-            moves = game.gameTable[buttonPosition.x, buttonPosition.y]
-                .piece.getPossibleMoves(game.gameTable, game.gameTable[buttonPosition.x, buttonPosition.y].color);
+        public void selectPiece(List<Move> moves)
+        {
+            refreshTable();
 
             foreach (var move in moves)
             {
@@ -86,15 +91,15 @@
                 {
                     case "green":
                         board[move.position.x, move.position.y].BackColor = Color.Green;
+                        board[move.position.x, move.position.y].Click -= onPieceClick;
                         board[move.position.x, move.position.y].Click += movePiece;
 
                         break;
 
                     case "red":
                         board[move.position.x, move.position.y].BackColor = Color.Red;
-                        board[move.position.x, move.position.y].Click -= showMoves;
+                        board[move.position.x, move.position.y].Click -= onPieceClick;
                         board[move.position.x, move.position.y].Click += movePiece;
-                        board[move.position.x, move.position.y].Click += takePiece;
 
                         break;
                 }
@@ -114,7 +119,6 @@
                         board[i,j].BackColor = Color.SaddleBrown;
 
                     board[i, j].Click -= movePiece;
-                    board[i, j].Click -= takePiece;
                 }
             }
         }
@@ -123,46 +127,28 @@
         {
             Position buttonPosition = getButtonPosition(sender);
 
-            removePiece(selectedPiece);
+            onMovePiece(buttonPosition);
+        }
 
-            board[buttonPosition.x, buttonPosition.y].BackgroundImage =
-                Image.FromFile(@$"{path}\Resources\Pieces\{selectedPiece.color}Pieces\{selectedPiece.piece.pieceName}.png");
+        public void clearSquare(Position position)
+        {
+            board[position.x, position.y].BackgroundImage = null;
+            board[position.x, position.y].Click -= movePiece;
+            board[position.x, position.y].Click -= onPieceClick;
+        }
 
-            game.gameTable[buttonPosition.x, buttonPosition.y] = selectedPiece;
-            game.gameTable[buttonPosition.x, buttonPosition.y].piece.position = new Position(buttonPosition.x, buttonPosition.y);
-
+        public void unselectPeace()
+        {
             refreshTable();
         }
 
-        public void removePiece(ColoredPiece piece)
+        public void placePeace(ColoredPiece piece)
         {
-            for (int i = 0; i < 10; i++)
-            {
-                for (int j = 0; j < 10; j++)
-                {
-                    if (i == selectedPiece.piece.position.x && j == selectedPiece.piece.position.y)
-                    {
-                        game.gameTable[i, j] = null;
-                        board[i, j].BackgroundImage = null;
-
-                        return;
-                    }
-                }
-            }
+            board[piece.piece.position.x, piece.piece.position.y].BackgroundImage =
+                Image.FromFile(@$"{path}\Resources\Pieces\{piece.color}Pieces\{piece.piece.pieceName}.png");
         }
 
-        public void takePiece(object sender, EventArgs eventArgs)
-        {
-            Position buttonPosition = getButtonPosition(sender);
-
-            removePiece(game.gameTable[buttonPosition.x, buttonPosition.y]);
-
-            board[buttonPosition.x, buttonPosition.y].Click += showMoves;
-
-            movePiece(sender, new EventArgs());
-        }
-
-        public Position getButtonPosition(object button)
+        private Position getButtonPosition(object button)
         {
             for (int i = 0; i < 10; i++)
             {

@@ -7,7 +7,13 @@
     <Compile Update="Panels\Board.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Panels\Client.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Panels\MainMenu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Panels\Server.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Panels\VsHuman.cs">

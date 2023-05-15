@@ -12,27 +12,65 @@ namespace Two_Kingdoms_Chess
 {
     public partial class VsHuman : UserControl
     {
-        Player player;
+        private readonly Board board;
+        Player playerOne;
+        Player playerTwo;
 
-        public VsHuman(Form1 form, Player player)
+        private bool playerOneTurn = true;
+
+        public VsHuman(Form1 form, Player playerOne, Player playerTwo)
         {
-            this.player = player;
-            this.player.gameChangeHandle += onGameChange;
+            this.playerOne = playerOne;
+            this.playerTwo = playerTwo;
 
             InitializeComponent();
 
-            dataGridView1.Rows.Clear();
+            this.board = new Board(playerOne.game.gameTable);
+            board.Show();
+            board.Dock = DockStyle.Fill;
+            this.Controls.Add(board);
 
-            var moves = player.pieces[0].getMoves(player.game.gameTable);
+            board.InitializeBoard();
 
-            foreach (var move in moves)
-            {
-                dataGridView1.Rows.Add(move.color, move.position.x, move.position.y);
-            }
+            board.onPieceSelect += onPieceSelect;
+            board.onMovePiece += onPieceMove;
         }
 
-        private void onGameChange(Move move)
+        private void onPieceSelect(ColoredPiece piece)
         {
+            if(playerOneTurn && piece.color == "white")
+            {
+                board.selectPiece(piece.piece.getPossibleMoves(playerOne.game.gameTable, piece.color));
+                playerOne.selectedPiece = piece;
+            }
+            else if(!playerOneTurn && piece.color == "black")
+            {
+                board.selectPiece(piece.piece.getPossibleMoves(playerOne.game.gameTable, piece.color));
+                playerTwo.selectedPiece = piece;
+            }
+
+        }
+
+        private void onPieceMove(Position position)
+        {
+            Move move;
+
+            board.unselectPeace();
+
+            if(playerOneTurn)
+            {
+                board.clearSquare(playerOne.selectedPiece.piece.position);
+                move = playerOne.makeMove(position);
+                board.placePeace(playerOne.selectedPiece);
+            }
+            else
+            {
+                board.clearSquare(playerTwo.selectedPiece.piece.position);
+                move = playerTwo.makeMove(position);
+                board.placePeace(playerTwo.selectedPiece);
+            }
+
+            playerOneTurn = !playerOneTurn;
         }
     }
 }

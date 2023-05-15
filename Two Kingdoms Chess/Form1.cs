@@ -13,7 +13,7 @@ namespace Two_Kingdoms_Chess
         {
             menu.Hide();
 
-            VsHuman humanOne = new VsHuman(this, game.playerOne);
+            VsHuman humanOne = new VsHuman(this, game.playerOne, game.playerTwo);
             humanOne.Show();
             humanOne.Dock = DockStyle.Fill;
             this.Controls.Add(humanOne);
@@ -23,10 +23,10 @@ namespace Two_Kingdoms_Chess
         {
             menu.Hide();
 
-            Board board = new Board(game);
+            Board board = new Board(game.gameTable);
             board.Show();
             board.Dock = DockStyle.Fill;
-            board.InitializeBoard();
+            //board.InitializeBoard();
 
             this.Controls.Add(board);
         }
