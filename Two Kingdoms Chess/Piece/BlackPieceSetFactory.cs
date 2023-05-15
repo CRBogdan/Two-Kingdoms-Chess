@@ -27,7 +27,7 @@
 
             blackPieces.Add(new BlackPiece(new General(new Position(4, 0))));
 
-            blackPieces.Add(new BlackPiece(new King(new Position(5, 0))));
+            blackPieces.Add(new BlackPiece(new King(new Position(5, 3))));
 
             return blackPieces;
         }
