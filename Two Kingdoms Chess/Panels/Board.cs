@@ -146,6 +146,8 @@
         {
             board[piece.piece.position.x, piece.piece.position.y].BackgroundImage =
                 Image.FromFile(@$"{path}\Resources\Pieces\{piece.color}Pieces\{piece.piece.pieceName}.png");
+
+            board[piece.piece.position.x, piece.piece.position.y].Click += onPieceClick;
         }
 
         private Position getButtonPosition(object button)
