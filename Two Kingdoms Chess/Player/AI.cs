@@ -2,9 +2,9 @@
 {
     public class AI : Player
     {
-        public override void movePiece(Move move)
+        public override void onPieceMove(Position position)
         {
-            this.game.movePiece(this, move);
+            throw new NotImplementedException();
         }
 
         public override void onPlayerMove(Move move)

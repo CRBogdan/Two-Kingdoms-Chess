@@ -25,31 +25,46 @@ namespace Two_Kingdoms_Chess
             WhitePieceSetFactory whitePieceSetFactory = new WhitePieceSetFactory();
             BlackPieceSetFactory blackPieceSetFactory = new BlackPieceSetFactory();
 
-            Player humanOne = new Human();
-            Player humanTwo = new Human();
+            Human humanOne = new Human();
+            Human humanTwo = new Human();
 
             humanOne.pieces.AddRange(whitePieceSetFactory.createWhiteSet());
             humanTwo.pieces.AddRange(blackPieceSetFactory.createBlackSet());
 
+
             Game game = new Game(humanOne, humanTwo);
 
-            parent.showVsHumanPanel(this, game);
+            Board board = new Board(game.gameTable);
+            board.InitializeBoard();
+
+            humanOne.setBoard(board);
+            humanTwo.setBoard(board);
+
+            humanOne.setGame(game);
+            humanTwo.setGame(game);
+
+            board.subscribeForWhite(humanOne.onPieceSelect, humanOne.onPieceMove);
+            board.subscribeForBlack(humanTwo.onPieceSelect, humanTwo.onPieceMove);
+
+            humanOne.isMyTurn = true;
+
+            parent.showVsHumanPanel(this, board);
         }
 
-        private void boardButton_Click(object sender, EventArgs e)
+        private void server_Click(object sender, EventArgs e)
         {
             WhitePieceSetFactory whitePieceSetFactory = new WhitePieceSetFactory();
             BlackPieceSetFactory blackPieceSetFactory = new BlackPieceSetFactory();
 
-            Player humanOne = new Human();
-            Player humanTwo = new Human();
+            Player server = new Server();
+            Player client = new Client();
 
-            humanOne.pieces.AddRange(whitePieceSetFactory.createWhiteSet());
-            humanTwo.pieces.AddRange(blackPieceSetFactory.createBlackSet());
+            server.pieces.AddRange(whitePieceSetFactory.createWhiteSet());
+            client.pieces.AddRange(blackPieceSetFactory.createBlackSet());
 
-            Game game = new Game(humanOne, humanTwo);
+            Game game = new Game(server, client);
 
-            parent.showBoardPanel(this, game);
+            //parent.showVsHumanPanel(this, game);
         }
     }
 }

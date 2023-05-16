@@ -29,7 +29,8 @@
         private void InitializeComponent()
         {
             button1 = new Button();
-            boardButton = new Button();
+            server = new Button();
+            client = new Button();
             SuspendLayout();
             // 
             // button1
@@ -42,21 +43,31 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
-            // boardButton
+            // server
             // 
-            boardButton.Location = new Point(103, 3);
-            boardButton.Name = "boardButton";
-            boardButton.Size = new Size(94, 29);
-            boardButton.TabIndex = 1;
-            boardButton.Text = "Board";
-            boardButton.UseVisualStyleBackColor = true;
-            boardButton.Click += boardButton_Click;
+            server.Location = new Point(3, 38);
+            server.Name = "server";
+            server.Size = new Size(94, 29);
+            server.TabIndex = 2;
+            server.Text = "Server";
+            server.UseVisualStyleBackColor = true;
+            server.Click += server_Click;
+            // 
+            // client
+            // 
+            client.Location = new Point(3, 73);
+            client.Name = "client";
+            client.Size = new Size(94, 29);
+            client.TabIndex = 3;
+            client.Text = "Client";
+            client.UseVisualStyleBackColor = true;
             // 
             // MainMenu
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(boardButton);
+            Controls.Add(client);
+            Controls.Add(server);
             Controls.Add(button1);
             Name = "MainMenu";
             Size = new Size(700, 700);
@@ -66,6 +77,7 @@
         #endregion
 
         private Button button1;
-        private Button boardButton;
+        private Button server;
+        private Button client;
     }
 }
