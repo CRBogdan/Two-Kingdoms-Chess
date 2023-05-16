@@ -12,9 +12,6 @@
             this.playerOne = playerOne;
             this.playerTwo = playerTwo;
 
-            playerOne.game = this;
-            playerTwo.game = this;
-
             addPiecesToTable(playerOne.pieces);
             addPiecesToTable(playerTwo.pieces);
         }

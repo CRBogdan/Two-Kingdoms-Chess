@@ -2,18 +2,21 @@
 {
     public partial class Board : UserControl
     {
-        private Player player;
         private static readonly string path = Directory.GetCurrentDirectory();
         private Button[,] board = new Button[10, 10];
         private static readonly int buttonSize = 70;
 
         public delegate void OnPieceSelect(ColoredPiece coloredPiece);
-        public event OnPieceSelect onPieceSelect;
+        public event OnPieceSelect onPieceSelectWhite;
+        public event OnPieceSelect onPieceSelectBlack;
 
         public delegate void OnMovePiece(Position position);
-        public event OnMovePiece onMovePiece;
+        public event OnMovePiece onMovePieceWhite;
+        public event OnMovePiece onMovePieceBlack;
 
         private ColoredPiece[,] gameTable;
+
+        public ColoredPiece selectedPiece;
 
         public Board(ColoredPiece[,] gameTable)
         {
@@ -51,6 +54,18 @@
             addPiecesToTable();
         }
 
+        public void subscribeForWhite(OnPieceSelect onPieceSelect, OnMovePiece onMovePiece)
+        {
+            this.onMovePieceWhite += onMovePiece;
+            this.onPieceSelectWhite += onPieceSelect;
+        }
+
+        public void subscribeForBlack(OnPieceSelect onPieceSelect, OnMovePiece onMovePiece)
+        {
+            this.onMovePieceBlack += onMovePiece;
+            this.onPieceSelectBlack+= onPieceSelect;
+        }
+
         public void addPiecesToTable()
         {
             foreach (var piece in gameTable)
@@ -72,12 +87,14 @@
 
         private void onPieceClick(object sender, EventArgs eventArgs)
         {
-            List<Move> moves = new List<Move>();
             Position buttonPosition = getButtonPosition(sender);
 
             if (buttonPosition != null)
             {
-                onPieceSelect(gameTable[buttonPosition.x, buttonPosition.y]);
+                if (gameTable[buttonPosition.x, buttonPosition.y].color == "white")
+                    onPieceSelectWhite(gameTable[buttonPosition.x, buttonPosition.y]);
+                else
+                    onPieceSelectBlack(gameTable[buttonPosition.x, buttonPosition.y]);
             }
         }
 
@@ -127,7 +144,10 @@
         {
             Position buttonPosition = getButtonPosition(sender);
 
-            onMovePiece(buttonPosition);
+            if(selectedPiece.color == "white")
+                onMovePieceWhite(buttonPosition);
+            else 
+                onMovePieceBlack(buttonPosition);
         }
 
         public void clearSquare(Position position)

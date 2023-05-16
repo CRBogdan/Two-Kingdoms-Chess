@@ -32,8 +32,8 @@ namespace Two_Kingdoms_Chess
 
             board.InitializeBoard();
 
-            board.onPieceSelect += onPieceSelect;
-            board.onMovePiece += onPieceMove;
+            //board.onPieceSelect += onPieceSelect;
+            //board.onMovePiece += onPieceMove;
         }
 
         private void onPieceSelect(ColoredPiece piece)
