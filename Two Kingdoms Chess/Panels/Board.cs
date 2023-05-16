@@ -63,7 +63,7 @@
         public void subscribeForBlack(OnPieceSelect onPieceSelect, OnMovePiece onMovePiece)
         {
             this.onMovePieceBlack += onMovePiece;
-            this.onPieceSelectBlack+= onPieceSelect;
+            this.onPieceSelectBlack += onPieceSelect;
         }
 
         public void addPiecesToTable()
@@ -93,7 +93,7 @@
             {
                 if (gameTable[buttonPosition.x, buttonPosition.y].color == "white" && onPieceSelectWhite != null)
                     onPieceSelectWhite(gameTable[buttonPosition.x, buttonPosition.y]);
-                else if (gameTable[buttonPosition.x,buttonPosition.y].color == "black" && onPieceSelectBlack != null)
+                else if (gameTable[buttonPosition.x, buttonPosition.y].color == "black" && onPieceSelectBlack != null)
                     onPieceSelectBlack(gameTable[buttonPosition.x, buttonPosition.y]);
             }
         }
@@ -133,7 +133,7 @@
                     if ((i + j) % 2 == 0)
                         board[i, j].BackColor = Color.NavajoWhite;
                     else
-                        board[i,j].BackColor = Color.SaddleBrown;
+                        board[i, j].BackColor = Color.SaddleBrown;
 
                     board[i, j].Click -= movePiece;
                 }
@@ -144,7 +144,7 @@
         {
             Position buttonPosition = getButtonPosition(sender);
 
-            if(selectedPiece.color == "white" && onMovePieceWhite != null)
+            if (selectedPiece.color == "white" && onMovePieceWhite != null)
                 onMovePieceWhite(buttonPosition);
             else if (selectedPiece.color == "black" && onMovePieceBlack != null)
                 onMovePieceBlack(buttonPosition);

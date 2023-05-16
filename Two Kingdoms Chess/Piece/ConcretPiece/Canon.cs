@@ -13,7 +13,7 @@
             {
                 if (table[i, j] != null)
                 {
-                    if (table[i, position.y].color != color)
+                    if (table[i, j].color != color)
                     {
                         moves.Add(new OffensiveMove(this, new Position(i, j)));
                     }
@@ -27,7 +27,7 @@
             {
                 if (table[i, j] != null)
                 {
-                    if (table[i, position.y].color != color)
+                    if (table[i, j].color != color)
                     {
                         moves.Add(new OffensiveMove(this, new Position(i, j)));
 
@@ -38,11 +38,11 @@
             }
 
             //check moves diagonally down left
-            for (int i = position.x - 1, j = position.y - 1; i >= 0 && j >= 0; i--, j--)
+            for (int i = position.x - 1, j = position.y + 1; i >= 0 && j < 10; i--, j++)
             {
                 if (table[i, j] != null)
                 {
-                    if (table[i, position.y].color != color)
+                    if (table[i, j].color != color)
                     {
                         moves.Add(new OffensiveMove(this, new Position(i, j)));
                     }
@@ -57,7 +57,7 @@
             {
                 if (table[i, j] != null)
                 {
-                    if (table[i, position.y].color != color)
+                    if (table[i, j].color != color)
                     {
                         moves.Add(new OffensiveMove(this, new Position(i, j)));
                     }
