@@ -14,6 +14,14 @@ namespace Two_Kingdoms_Chess
         public override void onPlayerMove(Move move)
         {
             isMyTurn = true;
+
+            if (game.gameTable[move.position.x, move.position.y] != null)
+            {
+                board.unselectPeace();
+                board.clearSquare(move.position);
+                var moveTemp = this.makeMove(game.gameTable[move.position.x, move.position.y], move.piece.position);
+                board.placePeace(game.gameTable[moveTemp.piece.position.x, moveTemp.piece.position.y]);
+            }
         }
 
         public void onPieceSelect(ColoredPiece piece)
@@ -34,10 +42,10 @@ namespace Two_Kingdoms_Chess
             {
                 board.unselectPeace();
                 board.clearSquare(this.selectedPiece.piece.position);
-                move = this.makeMove(position);
+                move = this.makeMove(selectedPiece, position);
+                game.movePiece(this, move);
                 board.placePeace(this.selectedPiece);
                 isMyTurn = !isMyTurn;
-                game.movePiece(this, move);
             }
 
         }

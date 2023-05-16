@@ -91,9 +91,9 @@
 
             if (buttonPosition != null)
             {
-                if (gameTable[buttonPosition.x, buttonPosition.y].color == "white")
+                if (gameTable[buttonPosition.x, buttonPosition.y].color == "white" && onPieceSelectWhite != null)
                     onPieceSelectWhite(gameTable[buttonPosition.x, buttonPosition.y]);
-                else
+                else if (gameTable[buttonPosition.x,buttonPosition.y].color == "black" && onPieceSelectBlack != null)
                     onPieceSelectBlack(gameTable[buttonPosition.x, buttonPosition.y]);
             }
         }
@@ -144,9 +144,9 @@
         {
             Position buttonPosition = getButtonPosition(sender);
 
-            if(selectedPiece.color == "white")
+            if(selectedPiece.color == "white" && onMovePieceWhite != null)
                 onMovePieceWhite(buttonPosition);
-            else 
+            else if (selectedPiece.color == "black" && onMovePieceBlack != null)
                 onMovePieceBlack(buttonPosition);
         }
 

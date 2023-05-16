@@ -18,23 +18,27 @@
             this.game = game;
         }
 
-        public Move makeMove(Position position)
+        public Move makeMove(ColoredPiece piece, Position position)
         {
             if (game.gameTable[position.x, position.y] == null)
             {
-                game.gameTable[position.x, position.y] = selectedPiece;
-                game.gameTable[selectedPiece.piece.position.x, selectedPiece.piece.position.y] = null;
-                selectedPiece.piece.position = position;
+                var pos = new Position(piece.piece.position.x, piece.piece.position.y);
 
-                return new NormalMove(selectedPiece.piece, position);
+                game.gameTable[position.x, position.y] = piece;
+                game.gameTable[piece.piece.position.x, piece.piece.position.y] = null;
+                piece.piece.position = position;
+
+                return new NormalMove(piece.piece, pos);
             }
-            else if (game.gameTable[position.x, position.y].color != selectedPiece.color)
+            else if (game.gameTable[position.x, position.y].color != piece.color)
             {
-                game.gameTable[position.x, position.y] = selectedPiece;
-                game.gameTable[selectedPiece.piece.position.x, selectedPiece.piece.position.y] = null;
-                selectedPiece.piece.position = position;
+                var pos = new Position(piece.piece.position.x, piece.piece.position.y);
 
-                return new OffensiveMove(selectedPiece.piece, position);
+                game.gameTable[position.x, position.y] = piece;
+                game.gameTable[piece.piece.position.x, piece.piece.position.y] = null;
+                piece.piece.position = position;
+
+                return new OffensiveMove(piece.piece, pos);
             }
             else
                 return null;

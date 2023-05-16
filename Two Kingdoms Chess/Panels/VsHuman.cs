@@ -60,13 +60,13 @@ namespace Two_Kingdoms_Chess
             if(playerOneTurn)
             {
                 board.clearSquare(playerOne.selectedPiece.piece.position);
-                move = playerOne.makeMove(position);
+                //move = playerOne.makeMove(this. position);
                 board.placePeace(playerOne.selectedPiece);
             }
             else
             {
                 board.clearSquare(playerTwo.selectedPiece.piece.position);
-                move = playerTwo.makeMove(position);
+                //move = playerTwo.makeMove(position);
                 board.placePeace(playerTwo.selectedPiece);
             }
 
