@@ -1,6 +1,6 @@
-﻿namespace Two_Kingdoms_Chess.Panels
+﻿namespace Two_Kingdoms_Chess
 {
-    partial class Server
+    partial class ServerPanel
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,17 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
+            IP = new Label();
             SuspendLayout();
             // 
-            // Server
+            // IP
+            // 
+            IP.AutoSize = true;
+            IP.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            IP.Location = new Point(3, 0);
+            IP.Name = "IP";
+            IP.Size = new Size(43, 41);
+            IP.TabIndex = 0;
+            IP.Text = "IP";
+            // 
+            // ServerPanel
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Name = "Server";
-            Size = new Size(700, 700);
+            Controls.Add(IP);
+            Name = "ServerPanel";
+            Size = new Size(700, 608);
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Label IP;
     }
 }

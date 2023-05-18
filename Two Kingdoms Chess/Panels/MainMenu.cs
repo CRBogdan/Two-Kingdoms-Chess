@@ -34,7 +34,7 @@ namespace Two_Kingdoms_Chess
 
             Game game = new Game(humanOne, humanTwo);
 
-            Board board = new Board(game.gameTable);
+            BoardPanel board = new BoardPanel(game.gameTable);
             board.InitializeBoard();
 
             humanOne.setBoard(board);
@@ -53,18 +53,7 @@ namespace Two_Kingdoms_Chess
 
         private void server_Click(object sender, EventArgs e)
         {
-            WhitePieceSetFactory whitePieceSetFactory = new WhitePieceSetFactory();
-            BlackPieceSetFactory blackPieceSetFactory = new BlackPieceSetFactory();
-
-            Player server = new Server();
-            Player client = new Client();
-
-            server.pieces.AddRange(whitePieceSetFactory.createWhiteSet());
-            client.pieces.AddRange(blackPieceSetFactory.createBlackSet());
-
-            Game game = new Game(server, client);
-
-            //parent.showVsHumanPanel(this, game);
+            parent.showServer(this);
         }
     }
 }

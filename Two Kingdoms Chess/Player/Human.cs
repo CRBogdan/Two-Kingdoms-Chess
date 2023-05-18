@@ -1,12 +1,12 @@
-﻿using static Two_Kingdoms_Chess.Board;
+﻿using static Two_Kingdoms_Chess.BoardPanel;
 
 namespace Two_Kingdoms_Chess
 {
     public class Human : Player
     {
-        private Board board;
+        private BoardPanel board;
 
-        public void setBoard(Board board)
+        public void setBoard(BoardPanel board)
         {
             this.board = board;
         }
@@ -15,12 +15,11 @@ namespace Two_Kingdoms_Chess
         {
             isMyTurn = true;
 
-            if (game.gameTable[move.position.x, move.position.y] != null)
+            if (game.gameTable[move.piece.position.x, move.piece.position.y] != null)
             {
                 board.unselectPeace();
                 board.clearSquare(move.position);
-                var moveTemp = this.makeMove(game.gameTable[move.position.x, move.position.y], move.piece.position);
-                board.placePeace(game.gameTable[moveTemp.piece.position.x, moveTemp.piece.position.y]);
+                board.placePeace(game.gameTable[move.piece.position.x, move.piece.position.y]);
             }
         }
 
@@ -34,7 +33,7 @@ namespace Two_Kingdoms_Chess
             }
         }
 
-        public override void onPieceMove(Position position)
+        public void onPieceMove(Position position)
         {
             Move move;
 

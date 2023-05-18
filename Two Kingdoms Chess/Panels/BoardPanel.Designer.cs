@@ -1,6 +1,6 @@
 ﻿namespace Two_Kingdoms_Chess
 {
-    partial class Board
+    partial class BoardPanel
     {
         /// <summary> 
         /// Required designer variable.

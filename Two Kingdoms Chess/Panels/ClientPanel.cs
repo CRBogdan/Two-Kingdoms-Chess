@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Two_Kingdoms_Chess.Panels
 {
-    public partial class Server : UserControl
+    public partial class ClientPanel : UserControl
     {
-        public Server()
+        public ClientPanel()
         {
             InitializeComponent();
         }

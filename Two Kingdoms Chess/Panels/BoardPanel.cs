@@ -1,6 +1,6 @@
 ﻿namespace Two_Kingdoms_Chess
 {
-    public partial class Board : UserControl
+    public partial class BoardPanel : UserControl
     {
         private static readonly string path = Directory.GetCurrentDirectory();
         private Button[,] board = new Button[10, 10];
@@ -18,7 +18,7 @@
 
         public ColoredPiece selectedPiece;
 
-        public Board(ColoredPiece[,] gameTable)
+        public BoardPanel(ColoredPiece[,] gameTable)
         {
             this.gameTable = gameTable;
             InitializeComponent();
