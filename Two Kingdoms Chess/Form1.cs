@@ -9,7 +9,7 @@ namespace Two_Kingdoms_Chess
             InitializeComponent();
         }
 
-        public void showVsHumanPanel(UserControl mainMenu, UserControl board)
+        public void showBoard(UserControl mainMenu, UserControl board)
         {
             mainMenu.Hide();
 

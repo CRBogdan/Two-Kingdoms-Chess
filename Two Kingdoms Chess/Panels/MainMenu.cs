@@ -48,7 +48,7 @@ namespace Two_Kingdoms_Chess
 
             humanOne.isMyTurn = true;
 
-            parent.showVsHumanPanel(this, board);
+            parent.showBoard(this, board);
         }
 
         private void server_Click(object sender, EventArgs e)

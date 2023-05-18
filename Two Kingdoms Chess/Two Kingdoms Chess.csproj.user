@@ -16,8 +16,5 @@
     <Compile Update="Panels\Server.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Panels\VsHuman.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
   </ItemGroup>
 </Project>
