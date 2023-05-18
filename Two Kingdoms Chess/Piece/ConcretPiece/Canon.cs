@@ -38,7 +38,7 @@
             }
 
             //check moves diagonally down left
-            for (int i = position.x - 1, j = position.y - 1; i >= 0 && j >= 0; i--, j--)
+            for (int i = position.x - 1, j = position.y + 1; i >= 0 && j < 10; i--, j++)
             {
                 if (table[i, j] != null)
                 {

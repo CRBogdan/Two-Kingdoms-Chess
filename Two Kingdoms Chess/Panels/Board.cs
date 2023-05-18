@@ -63,7 +63,7 @@
         public void subscribeForBlack(OnPieceSelect onPieceSelect, OnMovePiece onMovePiece)
         {
             this.onMovePieceBlack += onMovePiece;
-            this.onPieceSelectBlack+= onPieceSelect;
+            this.onPieceSelectBlack += onPieceSelect;
         }
 
         public void addPiecesToTable()
@@ -133,7 +133,7 @@
                     if ((i + j) % 2 == 0)
                         board[i, j].BackColor = Color.NavajoWhite;
                     else
-                        board[i,j].BackColor = Color.SaddleBrown;
+                        board[i, j].BackColor = Color.SaddleBrown;
 
                     board[i, j].Click -= movePiece;
                 }
