@@ -46,7 +46,6 @@ namespace Two_Kingdoms_Chess
                 board.placePeace(this.selectedPiece);
                 isMyTurn = !isMyTurn;
             }
-
         }
     }
 }

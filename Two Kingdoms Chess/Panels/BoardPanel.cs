@@ -145,7 +145,11 @@
             Position buttonPosition = getButtonPosition(sender);
 
             if(selectedPiece.color == "white" && onMovePieceWhite != null)
+            {
                 onMovePieceWhite(buttonPosition);
+                onMovePieceBlack(buttonPosition);
+            }
+                
             else if (selectedPiece.color == "black" && onMovePieceBlack != null)
                 onMovePieceBlack(buttonPosition);
         }
