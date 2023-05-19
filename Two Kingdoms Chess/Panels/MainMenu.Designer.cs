@@ -45,6 +45,7 @@
             // 
             // server
             // 
+            server.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             server.Location = new Point(3, 38);
             server.Name = "server";
             server.Size = new Size(94, 29);

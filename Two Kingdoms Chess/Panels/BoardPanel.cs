@@ -1,6 +1,6 @@
 ﻿namespace Two_Kingdoms_Chess
 {
-    public partial class Board : UserControl
+    public partial class BoardPanel : UserControl
     {
         private static readonly string path = Directory.GetCurrentDirectory();
         private Button[,] board = new Button[10, 10];
@@ -18,7 +18,7 @@
 
         public ColoredPiece selectedPiece;
 
-        public Board(ColoredPiece[,] gameTable)
+        public BoardPanel(ColoredPiece[,] gameTable)
         {
             this.gameTable = gameTable;
             InitializeComponent();
@@ -93,7 +93,7 @@
             {
                 if (gameTable[buttonPosition.x, buttonPosition.y].color == "white" && onPieceSelectWhite != null)
                     onPieceSelectWhite(gameTable[buttonPosition.x, buttonPosition.y]);
-                else if (gameTable[buttonPosition.x, buttonPosition.y].color == "black" && onPieceSelectBlack != null)
+                else if (gameTable[buttonPosition.x,buttonPosition.y].color == "black" && onPieceSelectBlack != null)
                     onPieceSelectBlack(gameTable[buttonPosition.x, buttonPosition.y]);
             }
         }
@@ -144,7 +144,7 @@
         {
             Position buttonPosition = getButtonPosition(sender);
 
-            if (selectedPiece.color == "white" && onMovePieceWhite != null)
+            if(selectedPiece.color == "white" && onMovePieceWhite != null)
                 onMovePieceWhite(buttonPosition);
             else if (selectedPiece.color == "black" && onMovePieceBlack != null)
                 onMovePieceBlack(buttonPosition);

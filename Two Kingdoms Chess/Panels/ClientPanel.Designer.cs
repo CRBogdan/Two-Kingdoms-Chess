@@ -1,6 +1,6 @@
 ﻿namespace Two_Kingdoms_Chess.Panels
 {
-    partial class Client
+    partial class ClientPanel
     {
         /// <summary> 
         /// Required designer variable.

@@ -45,6 +45,5 @@
         }
 
         public abstract void onPlayerMove(Move move);
-        public abstract void onPieceMove(Position position);
     }
 }
