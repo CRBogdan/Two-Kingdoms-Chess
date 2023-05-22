@@ -89,7 +89,7 @@
         {
             Position buttonPosition = getButtonPosition(sender);
 
-            if (buttonPosition != null)
+            if (buttonPosition != null && gameTable[buttonPosition.x, buttonPosition.y] != null)
             {
                 if (gameTable[buttonPosition.x, buttonPosition.y].color == "white" && onPieceSelectWhite != null)
                     onPieceSelectWhite(gameTable[buttonPosition.x, buttonPosition.y]);

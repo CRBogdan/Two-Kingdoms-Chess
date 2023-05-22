@@ -12,29 +12,30 @@
         {
             List<Move> moves = new List<Move>();
 
-            if (!wasMoved)
+            if (color == "white")
             {
-                if (color == "white")
-                    for (int i = 1; i <= 3; i++)
-                    {
-                        var temp = getMove(table, new Position(position.x, position.y - i), color);
-                        if (temp != null)
-                            moves.Add(temp);
-                    }
-                else
-                    for (int i = 1; i <= 3; i++)
-                    {
-                        var temp = getMove(table, new Position(position.x, position.y + i), color);
-                        if (temp != null)
-                            moves.Add(temp);
-                    }
+                var n = 3;
+                if (position.y != 8)
+                    n = 1;
+                for (int i = 1; i <= n; i++)
+                {
+                    var temp = getMove(table, new Position(position.x, position.y - i), color);
+                    if (temp != null)
+                        moves.Add(temp);
+                }
             }
             else
             {
-                if (color == "white")
-                    moves.Add(getMove(table, new Position(position.x, position.y - 1), color));
-                else
-                    moves.Add(getMove(table, new Position(position.x, position.y + 1), color));
+                var n = 3;
+                if (position.y != 1)
+                    n = 1;
+                for (int i = 1; i <= n; i++)
+                {
+
+                    var temp = getMove(table, new Position(position.x, position.y + i), color);
+                    if (temp != null)
+                        moves.Add(temp);
+                }
             }
 
             Move tempMove;
