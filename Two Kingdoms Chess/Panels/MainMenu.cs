@@ -55,5 +55,10 @@ namespace Two_Kingdoms_Chess
         {
             parent.showServer(this);
         }
+
+        private void client_Click(object sender, EventArgs e)
+        {
+            parent.showClient(this);
+        }
     }
 }

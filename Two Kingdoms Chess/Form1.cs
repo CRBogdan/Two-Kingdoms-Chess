@@ -25,5 +25,15 @@ namespace Two_Kingdoms_Chess
             server.Dock = DockStyle.Fill;
             this.Controls.Add(server);
         }
+
+        public void showClient(UserControl mainMenu)
+        {
+            mainMenu.Hide();
+
+            ClientPanel client = new ClientPanel(this);
+            client.Show();
+            client.Dock = DockStyle.Fill;
+            this.Controls.Add(client);
+        }
     }
 }
