@@ -29,12 +29,16 @@
         {
             Move move;
             Random random = new Random();
+            int pieceIndex;
+            ColoredPiece randomPiece;
+            List<Move> moves;
 
-            int pieceIndex = random.Next(pieces.Count);
-
-            ColoredPiece randomPiece = pieces[pieceIndex];
-
-            List<Move> moves = randomPiece.piece.getPossibleMoves(this.game.gameTable, randomPiece.color);
+            do
+            {
+                pieceIndex = random.Next(pieces.Count);
+                randomPiece = pieces[pieceIndex];
+                moves = randomPiece.piece.getPossibleMoves(this.game.gameTable, randomPiece.color);
+            } while (moves.Count == 0);
 
             Position randomMove = moves[random.Next(moves.Count)].position;
 

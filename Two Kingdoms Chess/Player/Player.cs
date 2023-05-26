@@ -8,6 +8,7 @@
         public ColoredPiece selectedPiece;
         public GameChangeHandle gameChangeHandle;
         public bool isMyTurn = false;
+
         public Player()
         {
             this.pieces = new List<ColoredPiece>();
