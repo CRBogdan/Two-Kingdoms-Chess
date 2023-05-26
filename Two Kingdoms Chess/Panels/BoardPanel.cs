@@ -1,4 +1,6 @@
-﻿namespace Two_Kingdoms_Chess
+﻿using System.Reflection;
+
+namespace Two_Kingdoms_Chess
 {
     public partial class BoardPanel : UserControl
     {
@@ -89,7 +91,7 @@
         {
             Position buttonPosition = getButtonPosition(sender);
 
-            if (buttonPosition != null)
+            if (buttonPosition != null && gameTable[buttonPosition.x, buttonPosition.y] != null)
             {
                 if (gameTable[buttonPosition.x, buttonPosition.y].color == "white" && onPieceSelectWhite != null)
                     onPieceSelectWhite(gameTable[buttonPosition.x, buttonPosition.y]);
@@ -136,6 +138,11 @@
                         board[i, j].BackColor = Color.SaddleBrown;
 
                     board[i, j].Click -= movePiece;
+                    if (board[i, j].BackgroundImage != null)
+                    {
+                        board[i, j].Click -= onPieceClick;
+                        board[i, j].Click += onPieceClick;
+                    }
                 }
             }
         }
@@ -171,7 +178,7 @@
             board[piece.piece.position.x, piece.piece.position.y].BackgroundImage =
                 Image.FromFile(@$"{path}\Resources\Pieces\{piece.color}Pieces\{piece.piece.pieceName}.png");
 
-            board[piece.piece.position.x, piece.piece.position.y].Click += onPieceClick;
+            refreshTable();
         }
 
         private Position getButtonPosition(object button)

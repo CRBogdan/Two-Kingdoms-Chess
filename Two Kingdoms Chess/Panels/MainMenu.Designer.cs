@@ -62,6 +62,7 @@
             client.TabIndex = 3;
             client.Text = "Client";
             client.UseVisualStyleBackColor = true;
+            client.Click += client_Click;
             // 
             // MainMenu
             // 
