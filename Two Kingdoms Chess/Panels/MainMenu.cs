@@ -26,27 +26,31 @@ namespace Two_Kingdoms_Chess
             BlackPieceSetFactory blackPieceSetFactory = new BlackPieceSetFactory();
 
             Human humanOne = new Human();
-            //Human humanTwo = new Human();
+            Human humanTwo = new Human();
 
-            AI ai = new AI();
+            //AI ai = new AI();
 
             humanOne.pieces.AddRange(whitePieceSetFactory.createWhiteSet());
-            ai.pieces.AddRange(blackPieceSetFactory.createBlackSet());
+            humanTwo.pieces.AddRange(blackPieceSetFactory.createBlackSet());
+            //ai.pieces.AddRange(blackPieceSetFactory.createBlackSet());
 
 
-            Game game = new Game(humanOne, ai);
+            Game game = new Game(humanOne, humanTwo);
 
             BoardPanel board = new BoardPanel(game.gameTable);
             board.InitializeBoard();
 
             humanOne.setBoard(board);
-            ai.setBoard(board);
+            humanTwo.setBoard(board);
+            //ai.setBoard(board);
 
             humanOne.setGame(game);
-            ai.setGame(game);
+            humanTwo.setGame(game);
+            //ai.setGame(game);
 
             board.subscribeForWhite(humanOne.onPieceSelect, humanOne.onPieceMove);
-            board.subscribeForBlack(ai.onPieceSelect, ai.onPieceMove);
+            board.subscribeForBlack(humanTwo.onPieceSelect, humanTwo.onPieceMove);
+            //board.subscribeForBlack(ai.onPieceSelect, ai.onPieceMove);
 
             humanOne.isMyTurn = true;
 

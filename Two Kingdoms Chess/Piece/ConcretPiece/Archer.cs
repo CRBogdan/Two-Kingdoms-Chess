@@ -2,7 +2,9 @@
 {
     internal class Archer : Piece
     {
-        public Archer(Position position) : base(position, "archer") { }
+        public override bool WasMovedThreeSquares { get => false; protected set { } }
+
+        public Archer(Position position) : base(position, "archer", 4) { }
 
         public override List<Move> getPossibleMoves(ColoredPiece[,] table, String color)
         {
@@ -35,6 +37,11 @@
             moves.RemoveAll(x => x == null);
 
             return moves;
+        }
+
+        public override void checkIfMoved(ColoredPiece[,] table)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -7,8 +7,10 @@ namespace Two_Kingdoms_Chess
         private List<Move> attackedMoves = new List<Move>();
         private List<Thread> threads;
         private Semaphore semaphore;
+        private bool inCheck = false;
+        public override bool WasMovedThreeSquares { get => false; protected set { } }
 
-        public King(Position position) : base(position, "king")
+        public King(Position position) : base(position, "king", 0)
         {
         }
 
@@ -25,6 +27,8 @@ namespace Two_Kingdoms_Chess
             {
                 thread.Join();
             }
+
+            checkIfInCheck(table);
 
             for (int i = -1; i <= 1; i++)
             {
@@ -125,6 +129,22 @@ namespace Two_Kingdoms_Chess
             movesThread.Start();
 
             threads.Add(movesThread);
+        }
+
+        public void checkIfInCheck(ColoredPiece[,]table)
+        {
+            if (attackedMoves.Any(x => x.position == table[position.x, position.y].piece.position))
+            {
+                inCheck = true;
+                return;
+            }
+
+            inCheck = false;
+        }
+
+        public override void checkIfMoved(ColoredPiece[,] table)
+        {
+            throw new NotImplementedException();
         }
     }
 }

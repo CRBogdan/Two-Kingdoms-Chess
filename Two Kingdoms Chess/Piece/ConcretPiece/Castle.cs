@@ -2,7 +2,9 @@
 {
     internal class Castle : Piece
     {
-        public Castle(Position position) : base(position, "castle")
+        public override bool WasMovedThreeSquares { get => false; protected set { } }
+
+        public Castle(Position position) : base(position, "castle", 5)
         {
         }
 
@@ -71,6 +73,11 @@
             }
 
             return moves;
+        }
+
+        public override void checkIfMoved(ColoredPiece[,] table)
+        {
+            throw new NotImplementedException();
         }
     }
 }

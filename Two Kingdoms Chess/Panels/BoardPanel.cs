@@ -154,7 +154,7 @@ namespace Two_Kingdoms_Chess
             if(selectedPiece.color == "white" && onMovePieceWhite != null)
             {
                 onMovePieceWhite(buttonPosition);
-                onMovePieceBlack(buttonPosition);
+                //onMovePieceBlack(buttonPosition);     //pt AI
             }
                 
             else if (selectedPiece.color == "black" && onMovePieceBlack != null)

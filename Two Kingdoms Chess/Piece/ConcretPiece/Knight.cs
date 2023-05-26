@@ -2,14 +2,16 @@
 {
     internal class Knight : Piece
     {
-        public Knight(Position position) : base(position, "knight")
+        public override bool WasMovedThreeSquares { get => false; protected set { } }
+
+        public Knight(Position position) : base(position, "knight", 3)
         {
         }
 
         public override List<Move> getPossibleMoves(ColoredPiece[,] table, string color)
         {
             List<Move> moves = new List<Move>();
-
+             
             //down right
             if(position.x + 1 < 10 && position.y + 2 < 10)
             {
@@ -115,6 +117,11 @@
             }
 
             return moves;
+        }
+
+        public override void checkIfMoved(ColoredPiece[,] table)
+        {
+            throw new NotImplementedException();
         }
     }
 }
