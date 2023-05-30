@@ -42,9 +42,12 @@ namespace Two_Kingdoms_Chess
                 board.unselectPeace();
                 board.clearSquare(this.selectedPiece.piece.position);
                 move = this.makeMove(selectedPiece, position);
+                
+                
+
+                isMyTurn = !isMyTurn;
                 game.movePiece(this, move);
                 board.placePeace(this.selectedPiece);
-                isMyTurn = !isMyTurn;
             }
         }
     }

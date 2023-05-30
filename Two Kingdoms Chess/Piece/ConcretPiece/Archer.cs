@@ -3,6 +3,7 @@
     internal class Archer : Piece
     {
         public override bool WasMovedThreeSquares { get => false; protected set { } }
+        public override bool WasMoved { get => false; protected set { } }
 
         public Archer(Position position) : base(position, "archer", 4) { }
 
@@ -41,7 +42,6 @@
 
         public override void checkIfMoved(ColoredPiece[,] table)
         {
-            throw new NotImplementedException();
         }
     }
 }

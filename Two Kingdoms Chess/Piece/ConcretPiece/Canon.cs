@@ -3,6 +3,7 @@
     internal class Canon : Piece
     {
         public override bool WasMovedThreeSquares { get => false; protected set { } }
+        public override bool WasMoved { get => false; protected set { } }
 
         public Canon(Position position) : base (position, "canon", 3) { }
 
@@ -74,7 +75,6 @@
 
         public override void checkIfMoved(ColoredPiece[,] table)
         {
-            throw new NotImplementedException();
         }
     }
 }

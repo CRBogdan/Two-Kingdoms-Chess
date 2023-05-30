@@ -154,11 +154,14 @@ namespace Two_Kingdoms_Chess
             if(selectedPiece.color == "white" && onMovePieceWhite != null)
             {
                 onMovePieceWhite(buttonPosition);
-                //onMovePieceBlack(buttonPosition);     //pt AI
-            }
-                
+            }   
             else if (selectedPiece.color == "black" && onMovePieceBlack != null)
                 onMovePieceBlack(buttonPosition);
+
+            refreshTable();
+            clearSquare(selectedPiece.piece.position);
+            onMovePieceBlack(null);    //pt AI
+            refreshTable();
         }
 
         public void clearSquare(Position position)

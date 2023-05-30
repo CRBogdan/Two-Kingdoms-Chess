@@ -3,6 +3,7 @@
     internal class Knight : Piece
     {
         public override bool WasMovedThreeSquares { get => false; protected set { } }
+        public override bool WasMoved { get => false; protected set { } }
 
         public Knight(Position position) : base(position, "knight", 3)
         {
@@ -121,7 +122,6 @@
 
         public override void checkIfMoved(ColoredPiece[,] table)
         {
-            throw new NotImplementedException();
         }
     }
 }

@@ -8,15 +8,19 @@ namespace Two_Kingdoms_Chess
         private List<Thread> threads;
         private Semaphore semaphore;
         private bool inCheck = false;
+        private Position lastPosition;
+        private List<Move> moves = new List<Move>();
         public override bool WasMovedThreeSquares { get => false; protected set { } }
+        public override bool WasMoved { get; protected set; }
 
         public King(Position position) : base(position, "king", 0)
         {
+            lastPosition = position;
         }
 
         public override List<Move> getPossibleMoves(ColoredPiece[,] table, String color)
         {
-            List<Move> moves = new List<Move>();
+            moves.Clear();
 
             threads = new List<Thread>();
             semaphore = new Semaphore(1, 20);
@@ -39,6 +43,12 @@ namespace Two_Kingdoms_Chess
                         moves.Add(getNextMove(table, new Position(position.x + i, position.y + j), color));
                     }
                 }
+            }
+
+            if (!WasMoved)
+            {
+                getLongCastlingMove(table, color);
+                getShortCastlingMove(table, color);
             }
 
             moves.RemoveAll(x => x == null);
@@ -110,16 +120,13 @@ namespace Two_Kingdoms_Chess
                     {
                         for (int j = -1; j <= 1; j++)
                         {
-                            if (i != 0 || j != 0)
+                            if (moveNearKing(move, position, i, j))
                             {
-                                if (moveNearKing(move, position, i, j))
-                                {
-                                    semaphore.WaitOne();
+                                semaphore.WaitOne();
 
-                                    attackedMoves.Add(move);
+                                attackedMoves.Add(move);
 
-                                    semaphore.Release();
-                                }
+                                semaphore.Release();
                             }
                         }
                     }
@@ -142,9 +149,100 @@ namespace Two_Kingdoms_Chess
             inCheck = false;
         }
 
+        public void getLongCastlingMove(ColoredPiece[,] table, String color)
+        {
+            if (inCheck)
+            {
+                return;
+            }
+
+            if (table[0, position.y] != null)
+            {
+                if (table[0, position.y].piece.WasMoved)
+                {
+                    return;
+                }
+            }
+
+            for (int i = 1; i < position.x; i++)
+            {
+                if (table[i,position.y] != null)
+                {
+                    return;
+                }
+            }
+
+            ColoredPiece king = table[position.x, position.y];
+            table[position.x, position.y] = null;
+            table[3, position.y] = king;
+            table[3, position.y].piece.position = new Position(3, 9); 
+
+            getAttackedPositions(table, color);
+
+            checkIfInCheck(table);
+
+            table[position.x, position.y] = null;
+            table[lastPosition.x, lastPosition.y] = king;
+            table[lastPosition.x, lastPosition.y].piece.position = lastPosition;
+
+            if (inCheck)
+            {
+                return;
+            }
+
+            moves.Add(new NormalMove(table[position.x, position.y].piece, new Position(3, position.y)));
+        }
+
+        public void getShortCastlingMove(ColoredPiece[,] table, String color)
+        {
+            if (inCheck)
+            {
+                return;
+            }
+
+            if (table[9, position.y] != null)
+            {
+                if (table[9, position.y].piece.WasMoved)
+                {
+                    return;
+                }
+            }
+
+            for (int i = 8; i > position.x; i--)
+            {
+                if (table[i, position.y] != null)
+                {
+                    return;
+                }
+            }
+
+            ColoredPiece king = table[position.x, position.y];
+            table[position.x, position.y] = null;
+            table[7, position.y] = king;
+            table[7, position.y].piece.position = new Position(7, 9);
+
+            getAttackedPositions(table, color);
+
+            checkIfInCheck(table);
+
+            table[position.x, position.y] = null;
+            table[lastPosition.x, lastPosition.y] = king;
+            table[lastPosition.x, lastPosition.y].piece.position = lastPosition;
+
+            if (inCheck)
+            {
+                return;
+            }
+
+            moves.Add(new NormalMove(table[position.x, position.y].piece, new Position(7, position.y)));
+        }
+
         public override void checkIfMoved(ColoredPiece[,] table)
         {
-            throw new NotImplementedException();
+            if (table[position.x, position.y].piece.position != lastPosition)
+            {
+                WasMoved = true;
+            }
         }
     }
 }

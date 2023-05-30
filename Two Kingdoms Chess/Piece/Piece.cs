@@ -6,6 +6,7 @@
         public String pieceName;
         public int value;
         public abstract bool WasMovedThreeSquares { get; protected set; }
+        public abstract bool WasMoved {  get; protected set; }
 
         public Piece(Position position, string pieceName, int value)
         {
