@@ -16,6 +16,13 @@
             addPiecesToTable(playerTwo.pieces);
         }
 
+        public Game(Game game)
+        {
+            this.gameTable = game.gameTable;
+            this.playerOne = game.playerOne;
+            this.playerTwo = game.playerTwo;
+        }
+
         public void movePiece(Player player, Move move)
         {
             if(player == playerOne)

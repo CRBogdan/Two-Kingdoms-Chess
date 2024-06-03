@@ -2,8 +2,13 @@
 {
     internal class Castle : Piece
     {
-        public Castle(Position position) : base(position, "castle")
+        private Position lastPosition;
+        public override bool WasMovedThreeSquares { get => false; protected set { } }
+        public override bool WasMoved { get; protected set; }
+
+        public Castle(Position position) : base(position, "castle", 5)
         {
+            lastPosition = position;
         }
 
         public override List<Move> getPossibleMoves(ColoredPiece[,] table, string color)
@@ -71,6 +76,14 @@
             }
 
             return moves;
+        }
+
+        public override void checkIfMoved(ColoredPiece[,] table)
+        {
+            if (table[position.x, position.y].piece.position != lastPosition)
+            {
+                WasMoved = true;
+            }
         }
     }
 }

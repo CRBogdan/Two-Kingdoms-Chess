@@ -2,7 +2,10 @@
 {
     internal class General : Piece
     {
-        public General(Position position) : base(position, "general")
+        public override bool WasMovedThreeSquares { get => false; protected set { } }
+        public override bool WasMoved { get => false; protected set { } }
+
+        public General(Position position) : base(position, "general", 9)
         {
         }
 
@@ -131,6 +134,10 @@
             }
 
             return moves;
+        }
+
+        public override void checkIfMoved(ColoredPiece[,] table)
+        {
         }
     }
 }

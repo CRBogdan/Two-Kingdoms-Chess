@@ -2,7 +2,10 @@
 {
     internal class Canon : Piece
     {
-        public Canon(Position position) : base (position, "canon") { }
+        public override bool WasMovedThreeSquares { get => false; protected set { } }
+        public override bool WasMoved { get => false; protected set { } }
+
+        public Canon(Position position) : base (position, "canon", 3) { }
 
         public override List<Move> getPossibleMoves(ColoredPiece[,] table, String color)
         {
@@ -68,6 +71,10 @@
             }
 
             return moves;
+        }
+
+        public override void checkIfMoved(ColoredPiece[,] table)
+        {
         }
     }
 }

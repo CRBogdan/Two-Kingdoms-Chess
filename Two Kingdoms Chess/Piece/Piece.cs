@@ -4,11 +4,15 @@
     {
         public Position position;
         public String pieceName;
+        public int value;
+        public abstract bool WasMovedThreeSquares { get; protected set; }
+        public abstract bool WasMoved {  get; protected set; }
 
-        public Piece(Position position, string pieceName)
+        public Piece(Position position, string pieceName, int value)
         {
             this.position = position;
             this.pieceName = pieceName;
+            this.value = value;
         }
 
         public abstract List<Move> getPossibleMoves(ColoredPiece[,] table, String color);
@@ -32,5 +36,7 @@
 
             return null;
         }
+
+        public abstract void checkIfMoved(ColoredPiece[,] table);
     }
 }
